@@ -1,49 +1,71 @@
 import React from 'react';
+import './MainSite.css';
+import { CATEGORIES } from '../data/categories';
 
-export default function MainSite({ onBack }) {
+// Rasmlaringiz yo'liga moslang
+import logoImg from '../assets/images/logo.png';
+import uzFlag from '../assets/images/flags/uz.png';
+import ruFlag from '../assets/images/flags/ru.png';
+import enFlag from '../assets/images/flags/en.png';
+
+const FLAGS = {
+  uz: uzFlag,
+  ru: ruFlag,
+  en: enFlag
+};
+
+export default function MainSite({ currentLanguage = 'ru', onBack, onSelectCategory }) {
+  const langUpper = currentLanguage.toUpperCase();
+
   return (
-    <div style={{ padding: '20px', maxWidth: '430px', margin: '0 auto', textAlign: 'center' }}>
-      
-      {/* Orqaga qaytish tugmasi */}
-      <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '20px' }}>
-        <button
-          onClick={onBack}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '8px 16px',
-            borderRadius: '12px',
-            border: '1px solid var(--color-border)',
-            backgroundColor: 'var(--color-card)',
-            color: 'var(--color-text-primary)',
-            fontSize: '14px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.05)'
-          }}
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="15 18 9 12 15 6" />
+    <div className="main-page-wrapper fade-in">
+      {/* Header qismi */}
+      <header className="site-header">
+        {/* Chap tomonda Burger Menyu (Orqaga qaytish uchun ham ishlatish mumkin) */}
+        <button type="button" className="menu-btn" onClick={onBack} aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
-          Orqaga
         </button>
-      </div>
 
-      {/* Kontent */}
-      <h2>Shirin Tabaka - Asosiy Sahifa</h2>
-      <p style={{ color: 'var(--color-text-secondary)', marginTop: '8px' }}>
-        Tez orada bu yerda menyu paydo bo'ladi!
-      </p>
+        {/* Markazda Logo */}
+        <div className="header-logo">
+          <img src={logoImg} alt="Shirin Tabaka" />
+        </div>
+
+        {/* O'ng tomonda Tilni almashtirish tugmasi */}
+        <button type="button" className="lang-switcher-btn" onClick={onBack}>
+          <img src={FLAGS[currentLanguage] || FLAGS.ru} alt={langUpper} className="lang-flag" />
+          <span>{langUpper}</span>
+        </button>
+      </header>
+
+      {/* Asosiy kategoriyalar grid qismi */}
+      <main className="categories-container">
+        <div className="categories-grid">
+          {CATEGORIES.map((category) => (
+            <div
+              key={category.id}
+              className="category-card"
+              onClick={() => onSelectCategory && onSelectCategory(category.id)}
+            >
+              <img
+                src={category.image}
+                alt={category.name[currentLanguage] || category.name.ru}
+                className="category-img"
+                loading="lazy"
+              />
+              <div className="category-overlay">
+                <span className="category-title">
+                  {category.name[currentLanguage] || category.name.ru}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
