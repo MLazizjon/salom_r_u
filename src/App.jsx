@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import LanguageSelect from './features/language-select/LanguageSelect';
+import React, { useState } from 'react';
 import MainSite from './pages/MainSite';
+import CategoryDetail from './components/CategoryDetail';
 
-function App() {
-  const [currentLang, setCurrentLang] = useState(null);
+export default function App() {
+  const [currentLanguage, setCurrentLanguage] = useState('ru'); // 'uz' | 'ru' | 'en'
+  const [selectedCategory, setSelectedCategory] = useState(null); // Tanlangan kategoriya obyekti
 
-  useEffect(() => {
-    const savedLang = localStorage.getItem('selected_language');
-    if (savedLang) {
-      setCurrentLang(savedLang);
-    }
-  }, []);
-
-  const handleLanguageSelect = (langCode) => {
-    localStorage.setItem('selected_language', langCode);
-    setCurrentLang(langCode);
+  // Tilni almashtirish funksiyasi (RU -> UZ -> EN -> RU)
+  const handleChangeLanguage = () => {
+    const langs = ['ru', 'uz', 'en'];
+    const nextIndex = (langs.indexOf(currentLanguage) + 1) % langs.length;
+    setCurrentLanguage(langs[nextIndex]);
   };
 
-  // Tilni bekor qilish va til tanlash sahifasiga qaytish funksiyasi
-  const handleBackToLanguageSelect = () => {
-    localStorage.removeItem('selected_language');
-    setCurrentLang(null);
+  // Burger menyu uchun (zarur bo'lsa)
+  const handleMenuToggle = () => {
+    console.log("Burger menyu bosildi");
   };
 
-  // Agar til tanlanmagan bo'lsa -> LanguageSelect sahifasi
-  if (!currentLang) {
-    return <LanguageSelect onSelectLanguage={handleLanguageSelect} />;
-  }
-
-  // Til tanlangan bo'lsa -> MainSite sahifasi
   return (
-    <MainSite 
-      currentLanguage={currentLang} 
-      onBack={handleBackToLanguageSelect} 
-    />
+    <div className="app-main-container">
+      {selectedCategory ? (
+        /* Kategoriya tanlangan bo'lsa -> Mahsulotlar (CategoryDetail) sahifasi ochiladi */
+        <CategoryDetail
+          category={selectedCategory}
+          currentLang={currentLanguage}
+          onBack={() => setSelectedCategory(null)}
+          onChangeLang={handleChangeLanguage}
+        />
+      ) : (
+        /* Kategoriya tanlanmagan bo'lsa -> Asosiy menyu (MainSite) ko'rinadi */
+        <MainSite
+          currentLanguage={currentLanguage}
+          onMenuToggle={handleMenuToggle}
+          onChangeLanguage={handleChangeLanguage}
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        />
+      )}
+    </div>
   );
 }
-
-export default App;

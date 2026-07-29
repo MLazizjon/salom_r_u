@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './MainSite.css';
 import { CATEGORIES } from '../data/categories';
 
-// Rasmlar import yo'llari (faqat bitta ../ bilan)
+// Rasmlar import yo'llari
 import logoImg from '../assets/images/logo.png';
 import uzFlag from '../assets/images/flags/uz.png';
 import ruFlag from '../assets/images/flags/ru.png';
@@ -14,7 +14,12 @@ const FLAGS = {
   en: enFlag
 };
 
-export default function MainSite({ currentLanguage = 'ru', onBack, onSelectCategory }) {
+export default function MainSite({ 
+  currentLanguage = 'ru', 
+  onMenuToggle,     // Chap tarafdagi burger menyu uchun
+  onChangeLanguage, // O'ng tarafdagi til almashtirish uchun
+  onSelectCategory  // Kategoriya tanlanganda (CategoryDetail ga o'tish uchun)
+}) {
   const langUpper = currentLanguage.toUpperCase();
 
   useEffect(() => {
@@ -35,7 +40,7 @@ export default function MainSite({ currentLanguage = 'ru', onBack, onSelectCateg
         <button 
           type="button" 
           className="menu-btn" 
-          onClick={onBack} 
+          onClick={onMenuToggle} 
           aria-label="Menu"
           data-aos="fade-up"
           data-aos-delay="100"
@@ -60,7 +65,7 @@ export default function MainSite({ currentLanguage = 'ru', onBack, onSelectCateg
         <button 
           type="button" 
           className="lang-switcher-btn" 
-          onClick={onBack}
+          onClick={onChangeLanguage}
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -76,7 +81,7 @@ export default function MainSite({ currentLanguage = 'ru', onBack, onSelectCateg
             <div
               key={category.id}
               className="category-card"
-              onClick={() => onSelectCategory && onSelectCategory(category.id)}
+              onClick={() => onSelectCategory && onSelectCategory(category)}
               data-aos="fade-up"
               data-aos-delay={(index % 6) * 50 + 100}
             >

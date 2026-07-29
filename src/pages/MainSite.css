@@ -36,6 +36,7 @@
   justify-content: space-between;
 }
 
+/* Chap tomondagi tugma va uni o'rab turgan blok o'lchami */
 .menu-btn {
   width: 44px;
   height: 44px;
@@ -48,24 +49,43 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.15s ease;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
 }
 
 .menu-btn:active {
-  transform: scale(0.94);
+  transform: scale(0.92);
+  background-color: #360b0f;
+}
+
+/* HEADER LOGO: IDEAL MARKAZLASHTIRISH VA BIROZ KATTALASHTIRISH */
+.header-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Logotipni o'ng tarafga salgina surib visual markazga keltirish */
+  transform: translateX(-6px); 
 }
 
 .header-logo img {
-  height: 75px;
+  height: 80px; /* Logotip chiroyli va header ichida sig'adigan optimal kattalikda */
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
+/* O'ng tomondagi til switcher container */
 .lang-switcher-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   padding: 6px 12px;
+  min-width: 68px; /* Chapdagi tugma balansini ushlash uchun */
+  height: 44px;
   background-color: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: 10px;
@@ -74,6 +94,14 @@
   color: var(--color-text-primary);
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease, background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.lang-switcher-btn:active {
+  transform: scale(0.94);
+  background-color: #f5f5f5;
 }
 
 .lang-flag {
@@ -105,11 +133,16 @@
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   background-color: #e0e0e0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 2px solid transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
+/* CARD BOSILGANDAGI ANIMATSIYA VA EFFEKT (ACTIVE) */
 .category-card:active {
-  transform: scale(0.97);
+  transform: scale(0.95);
+  box-shadow: 0 2px 16px rgba(74, 16, 22, 0.35);
+  border-color: #4A1016;
 }
 
 .category-img {
@@ -117,6 +150,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.25s ease;
+}
+
+.category-card:active .category-img {
+  transform: scale(1.06);
 }
 
 /* Qorong'u gradient overlay va matn */
@@ -134,6 +172,16 @@
   justify-content: center;
   padding: 10px 8px;
   text-align: center;
+  transition: background 0.2s ease;
+}
+
+.category-card:active .category-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.35) 60%,
+    transparent 100%
+  );
 }
 
 .category-title {
@@ -143,6 +191,11 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.category-card:active .category-title {
+  transform: translateY(-1px);
 }
 
 /* ==========================================
@@ -150,7 +203,7 @@
    ========================================== */
 @media screen and (min-width: 600px) and (min-height: 750px) {
   .main-page-wrapper {
-    max-width: 680px; /* Planshet kengligi uchun qulay konteyner */
+    max-width: 680px;
   }
 
   .site-header {
@@ -158,14 +211,13 @@
   }
 
   .header-logo img {
-    height: 85px; /* Logotip chiroyli va aniq hajimda */
+    height: 90px;
   }
 
   .categories-grid {
     gap: 14px;
   }
 
-  /* Planshet ekranida roppa-rosa 4 ta qator (8 karta) joylashishi uchun */
   .category-card {
     aspect-ratio: 1.7 / 1; 
     border-radius: 16px;
