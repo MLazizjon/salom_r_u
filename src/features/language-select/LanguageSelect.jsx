@@ -17,9 +17,9 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
 
   const handleSelect = (code) => {
     setSelectedLang(code);
-    
-    // Tanlangan tilni saqlaymiz va asosiy sahifaga o'tkazamiz
+
     localStorage.setItem('app_language', code);
+
     if (onSelectLanguage) {
       onSelectLanguage(code);
     }
@@ -27,32 +27,54 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
 
   return (
     <div className="language-page">
+
       <div className="mobile-container">
-        
-        {/* Background Watermark Circle */}
+
+        {/* Background */}
         <div className="watermark-bg" />
 
-        {/* Header & Logo */}
+        {/* Header */}
         <div className="header-section">
-          <img src={logoImg} alt="Shirin Tabaka" className="brand-logo" />
-          <h1 className="welcome-title">Xush kelibsiz!</h1>
-          <p className="welcome-subtitle">Tilni tanlang</p>
+          <img
+            src={logoImg}
+            alt="Shirin Tabaka"
+            className="brand-logo"
+          />
+
+          <h1 className="welcome-title">
+            Xush kelibsiz!
+          </h1>
+
+          <p className="welcome-subtitle">
+            Tilni tanlang
+          </p>
         </div>
 
-        {/* Language Cards */}
+        {/* Languages */}
         <div className="languages-wrapper">
           {LANGUAGES.map((lang) => (
             <button
               key={lang.code}
               type="button"
-              className={`lang-button ${selectedLang === lang.code ? 'active' : ''}`}
+              className={`lang-button ${
+                selectedLang === lang.code ? 'active' : ''
+              }`}
               onClick={() => handleSelect(lang.code)}
             >
               <div className="lang-button-left">
-                <img src={lang.flag} alt={lang.name} className="flag-icon" />
-                <span className="lang-text">{lang.name}</span>
+                <img
+                  src={lang.flag}
+                  alt={lang.name}
+                  className="flag-icon"
+                />
+
+                <span className="lang-text">
+                  {lang.name}
+                </span>
               </div>
+
               <svg
+                className="arrow-icon"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
@@ -61,7 +83,6 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="arrow-icon"
               >
                 <polyline points="9 18 15 12 9 6" />
               </svg>
@@ -69,27 +90,32 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
           ))}
         </div>
 
-        {/* Footer Info */}
-        <div className="footer-section">
-          <span className="version-label">v1.0</span>
-          <span className="brand-label">Powered by Shirin Tabaka</span>
-        </div>
-
-        {/* Bottom Curved Red Shape (O'zgargan qism) */}
-        <div className="bottom-curved-banner">
-          <svg
-            viewBox="0 0 500 120"
-            preserveAspectRatio="none"
-            style={{ width: '100%', height: '100%', display: 'block' }}
-          >
-            <path
-              d="M0,20 Q250,90 500,20 L500,120 L0,120 Z"
-              fill="var(--color-primary)"
-            />
-          </svg>
-        </div>
-
       </div>
+
+      {/* Footer */}
+      <div className="footer-section">
+        <span className="version-label">
+          v1.0
+        </span>
+
+        <span className="brand-label">
+          Powered by Shirin Tabaka
+        </span>
+      </div>
+
+      {/* Bottom Banner */}
+      <div className="bottom-curved-banner">
+        <svg
+          viewBox="0 0 500 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,20 Q250,90 500,20 L500,120 L0,120 Z"
+            fill="var(--color-primary)"
+          />
+        </svg>
+      </div>
+
     </div>
   );
 };
