@@ -14,10 +14,10 @@ const FLAGS = {
   en: enFlag
 };
 
-export default function MainSite({ 
-  currentLanguage = 'ru', 
+export default function MainSite({
+  currentLanguage = 'ru',
   onMenuToggle,     // Chap tarafdagi burger menyu uchun
-  onChangeLanguage, // O'ng tarafdagi til almashtirish uchun
+  onChangeLanguage, // O'ng tarafdagi til tanlash sahifasini ochish uchun
   onSelectCategory  // Kategoriya tanlanganda (CategoryDetail ga o'tish uchun)
 }) {
   const langUpper = currentLanguage.toUpperCase();
@@ -36,16 +36,24 @@ export default function MainSite({
     <div className="main-page-wrapper">
       {/* Header qismi */}
       <header className="site-header">
+
         {/* Chap tomonda Burger Menyu */}
-        <button 
-          type="button" 
-          className="menu-btn" 
-          onClick={onMenuToggle} 
+        <button
+          type="button"
+          className="menu-btn"
+          onClick={onMenuToggle}
           aria-label="Menu"
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+          >
             <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />
@@ -53,7 +61,7 @@ export default function MainSite({
         </button>
 
         {/* Markazda Logo */}
-        <div 
+        <div
           className="header-logo"
           data-aos="fade-up"
           data-aos-delay="150"
@@ -61,43 +69,75 @@ export default function MainSite({
           <img src={logoImg} alt="Shirin Tabaka" />
         </div>
 
-        {/* O'ng tomonda Tilni almashtirish tugmasi */}
-        <button 
-          type="button" 
-          className="lang-switcher-btn" 
-          onClick={onChangeLanguage}
+        {/* O'ng tomonda Til tugmasi */}
+        <button
+          type="button"
+          className="lang-switcher-btn"
+          onClick={() => {
+            // Scroll joyini saqlash
+            sessionStorage.setItem(
+              "mainScrollPosition",
+              window.scrollY
+            );
+
+            // Qaysi sahifadan kelganini saqlash
+            sessionStorage.setItem(
+              "returnPage",
+              "main"
+            );
+
+            // Til tanlash sahifasini ochish
+            if (onChangeLanguage) {
+              onChangeLanguage();
+            }
+          }}
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          <img src={FLAGS[currentLanguage] || FLAGS.ru} alt={langUpper} className="lang-flag" />
+          <img
+            src={FLAGS[currentLanguage] || FLAGS.ru}
+            alt={langUpper}
+            className="lang-flag"
+          />
           <span>{langUpper}</span>
         </button>
+
       </header>
 
-      {/* Asosiy kategoriyalar grid qismi */}
+      {/* Asosiy kategoriyalar */}
       <main className="categories-container">
         <div className="categories-grid">
+
           {CATEGORIES.map((category, index) => (
             <div
               key={category.id}
               className="category-card"
-              onClick={() => onSelectCategory && onSelectCategory(category)}
+              onClick={() =>
+                onSelectCategory && onSelectCategory(category)
+              }
               data-aos="fade-up"
               data-aos-delay={(index % 6) * 50 + 100}
             >
               <img
                 src={category.image}
-                alt={category.name[currentLanguage] || category.name.ru}
+                alt={
+                  category.name[currentLanguage] ||
+                  category.name.ru
+                }
                 className="category-img"
                 loading="lazy"
               />
+
               <div className="category-overlay">
                 <span className="category-title">
-                  {category.name[currentLanguage] || category.name.ru}
+                  {category.name[currentLanguage] ||
+                    category.name.ru}
                 </span>
               </div>
+
             </div>
           ))}
+
         </div>
       </main>
     </div>
