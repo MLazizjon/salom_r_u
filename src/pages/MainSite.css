@@ -67,7 +67,6 @@
   justify-content: center;
   text-align: center;
   /* Logotipni o'ng tarafga salgina surib visual markazga keltirish */
-  transform: translateX(-6px); 
 }
 
 .header-logo img {
@@ -75,6 +74,7 @@
   width: auto;
   object-fit: contain;
   display: block;
+  transform: translateX(12px); 
 }
 
 /* O'ng tomondagi til switcher container */
