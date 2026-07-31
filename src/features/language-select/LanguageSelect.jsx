@@ -13,7 +13,9 @@ const LANGUAGES = [
 ];
 
 export const LanguageSelect = ({ onSelectLanguage }) => {
-  const [selectedLang, setSelectedLang] = useState('uz');
+  const [selectedLang, setSelectedLang] = useState(
+    localStorage.getItem('app_language') || 'uz'
+  );
 
   const handleSelect = (code) => {
     setSelectedLang(code);
@@ -35,24 +37,29 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
 
         {/* Header */}
         <div className="header-section">
+
           <img
             src={logoImg}
             alt="Shirin Tabaka"
             className="brand-logo"
+            data-aos="zoom-in"
           />
 
-          <h1 className="welcome-title">
-            Xush kelibsiz!
-          </h1>
+          <div data-aos="fade-up">
+            <h1 className="welcome-title">
+              Xush kelibsiz!
+            </h1>
 
-          <p className="welcome-subtitle">
-            Tilni tanlang
-          </p>
+            <p className="welcome-subtitle">
+              Tilni tanlang
+            </p>
+          </div>
+
         </div>
 
         {/* Languages */}
         <div className="languages-wrapper">
-          {LANGUAGES.map((lang) => (
+          {LANGUAGES.map((lang, index) => (
             <button
               key={lang.code}
               type="button"
@@ -60,6 +67,8 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
                 selectedLang === lang.code ? 'active' : ''
               }`}
               onClick={() => handleSelect(lang.code)}
+              data-aos="fade-up"
+              data-aos-delay={100 + index * 100}
             >
               <div className="lang-button-left">
                 <img
@@ -93,7 +102,11 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
       </div>
 
       {/* Footer */}
-      <div className="footer-section">
+      <div
+        className="footer-section"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
         <span className="version-label">
           v1.0
         </span>

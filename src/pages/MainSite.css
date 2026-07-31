@@ -36,27 +36,267 @@
   justify-content: space-between;
 }
 
-/* Chap tomondagi tugma va uni o'rab turgan blok o'lchami */
-.menu-btn {
-  width: 44px;
-  height: 44px;
-  background-color: #4A1016; /* Shirin Tabaka to'q qizil rangi */
-  color: #FFFFFF;
-  border: none;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-  flex-shrink: 0;
+/* ===========================
+   PREMIUM ORTGA BUTTON
+=========================== */
+
+.menu-btn{
+    position:relative;
+    width:132px;
+    height:52px;
+
+    border:none;
+    outline:none;
+
+    border-radius:999px;
+
+    background:#ffffff;
+
+    display:flex;
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding:6px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    -webkit-tap-highlight-color:transparent;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08),
+        0 2px 8px rgba(92,21,28,.10);
+
+    transition:
+        transform .2s ease,
+        box-shadow .25s ease;
 }
 
-.menu-btn:active {
-  transform: scale(0.92);
-  background-color: #360b0f;
+.menu-btn:hover{
+
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 14px 28px rgba(92,21,28,.15),
+        0 4px 10px rgba(0,0,0,.08);
+}
+
+.menu-btn:active{
+
+    transform:scale(.97);
+}
+
+.menu-btn-circle{
+
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    background:#5C151C;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    position:relative;
+
+    z-index:3;
+
+    transition:all .45s cubic-bezier(.22,1,.36,1);
+}
+
+.menu-btn-circle svg{
+
+    width:20px;
+
+    height:20px;
+
+    transition:transform .35s;
+}
+
+.menu-btn-text{
+
+    margin-left:16px;
+
+    color:#5C151C;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    position:relative;
+
+    z-index:3;
+
+    transition:
+        color .35s,
+        transform .35s;
+}
+
+/* ===================================
+   PREMIUM BUTTON ANIMATION
+=================================== */
+
+.menu-btn.leaving .menu-btn-circle{
+
+    width:120px;
+
+    border-radius:999px;
+
+    justify-content:flex-start;
+
+    padding-left:14px;
+
+    background:linear-gradient(
+        135deg,
+        #5C151C 0%,
+        #7B1F28 100%
+    );
+}
+
+.menu-btn.leaving .menu-btn-circle svg{
+
+    transform:translateX(-2px);
+}
+
+.menu-btn.leaving .menu-btn-text{
+
+    color:#ffffff;
+
+    transform:translateX(-48px);
+}
+
+/* Hover */
+
+.menu-btn:hover .menu-btn-circle{
+
+    transform:scale(1.04);
+}
+
+.menu-btn:hover .menu-btn-text{
+
+    letter-spacing:.3px;
+}
+
+/* Focus */
+
+.menu-btn:focus-visible{
+
+    outline:2px solid rgba(92,21,28,.35);
+
+    outline-offset:3px;
+}
+
+/* ===================================
+   PREMIUM FINISH ANIMATION
+=================================== */
+
+.menu-btn::before{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:6px;
+
+    width:40px;
+    height:40px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        #5C151C 0%,
+        #7B1F28 100%
+    );
+
+    z-index:1;
+
+    transition:
+        width .45s cubic-bezier(.22,1,.36,1),
+        left .45s cubic-bezier(.22,1,.36,1),
+        opacity .3s;
+}
+
+.menu-btn.leaving::before{
+
+    width:calc(100% - 12px);
+
+    left:6px;
+}
+
+.menu-btn.leaving{
+
+    box-shadow:
+        0 12px 30px rgba(92,21,28,.25),
+        0 4px 12px rgba(0,0,0,.08);
+}
+
+.menu-btn.leaving .menu-btn-circle{
+
+    background:transparent;
+}
+
+.menu-btn.leaving .menu-btn-circle svg{
+
+    color:#ffffff;
+
+    transform:translateX(-2px);
+}
+
+.menu-btn.leaving .menu-btn-text{
+
+    color:#ffffff;
+
+    transform:translateX(-42px);
+}
+
+.menu-btn svg{
+
+    position:relative;
+
+    z-index:3;
+}
+
+.menu-btn-circle,
+.menu-btn-text{
+
+    will-change:transform;
+}
+
+@media (hover:hover){
+
+.menu-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.menu-btn:hover::before{
+
+    opacity:.96;
+}
+
+}
+
+@media (prefers-reduced-motion:reduce){
+
+.menu-btn,
+.menu-btn::before,
+.menu-btn-circle,
+.menu-btn-text{
+
+    transition:none !important;
+
+}
+
 }
 
 /* HEADER LOGO: IDEAL MARKAZLASHTIRISH VA BIROZ KATTALASHTIRISH */
@@ -66,15 +306,14 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Logotipni o'ng tarafga salgina surib visual markazga keltirish */
 }
 
 .header-logo img {
-  height: 80px; /* Logotip chiroyli va header ichida sig'adigan optimal kattalikda */
+  height: 80px;
   width: auto;
   object-fit: contain;
   display: block;
-  transform: translateX(12px); 
+  transform: translateX(-20px);
 }
 
 /* O'ng tomondagi til switcher container */
@@ -84,7 +323,7 @@
   justify-content: center;
   gap: 6px;
   padding: 6px 12px;
-  min-width: 68px; /* Chapdagi tugma balansini ushlash uchun */
+  min-width: 68px;
   height: 44px;
   background-color: #FFFFFF;
   border: 1px solid var(--color-border);
@@ -119,7 +358,7 @@
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 ta ustun */
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
@@ -138,7 +377,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* CARD BOSILGANDAGI ANIMATSIYA VA EFFEKT (ACTIVE) */
 .category-card:active {
   transform: scale(0.95);
   box-shadow: 0 2px 16px rgba(74, 16, 22, 0.35);
@@ -157,7 +395,6 @@
   transform: scale(1.06);
 }
 
-/* Qorong'u gradient overlay va matn */
 .category-overlay {
   position: absolute;
   inset: 0;
@@ -199,8 +436,9 @@
 }
 
 /* ==========================================
-   PLANSHETLAR UCHUN 4 QATORLIK MEDIA QUERY
-   ========================================== */
+   PLANSHETLAR UCHUN
+========================================== */
+
 @media screen and (min-width: 600px) and (min-height: 750px) {
   .main-page-wrapper {
     max-width: 680px;
@@ -219,7 +457,7 @@
   }
 
   .category-card {
-    aspect-ratio: 1.7 / 1; 
+    aspect-ratio: 1.7 / 1;
     border-radius: 16px;
   }
 

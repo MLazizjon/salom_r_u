@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import MainSite from './pages/MainSite';
 import CategoryDetail from './components/CategoryDetail';
 import LanguageSelect from './features/language-select/LanguageSelect';
 
 export default function App() {
-  const [currentLanguage, setCurrentLanguage] = useState('ru');
+  const [currentLanguage, setCurrentLanguage] = useState(
+    localStorage.getItem('app_language') || 'ru'
+  );
+
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   // Qaysi sahifa ochiq
@@ -12,11 +18,42 @@ export default function App() {
   // main | category
 
   // Til tanlash sahifasi ochiqmi
-  const [showLanguagePage, setShowLanguagePage] = useState(false);
+  const [showLanguagePage, setShowLanguagePage] = useState(true);
+
+  // AOS ishga tushirish
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50,
+    });
+  }, []);
+
+  // Sahifa almashganda AOS ni yangilash
+  useEffect(() => {
+    AOS.refresh();
+  }, [showLanguagePage, selectedCategory]);
 
   // Burger menu
   const handleMenuToggle = () => {
     console.log('Burger menyu bosildi');
+  };
+
+  // 🔥 Saytni boshidan boshlash (YANGI)
+  const handleRestart = () => {
+    setSelectedCategory(null);
+    setCurrentPage('main');
+    setShowLanguagePage(true);
+
+    sessionStorage.removeItem('mainScrollPosition');
+    sessionStorage.removeItem('categoryScrollPosition');
+    sessionStorage.removeItem('returnPage');
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    });
   };
 
   // Til tugmasi bosilganda
@@ -76,6 +113,7 @@ export default function App() {
           currentLanguage={currentLanguage}
           onMenuToggle={handleMenuToggle}
           onChangeLanguage={openLanguagePage}
+          onRestart={handleRestart}
           onSelectCategory={(category) =>
             setSelectedCategory(category)
           }

@@ -63,7 +63,7 @@
 /* Til tugmasi */
 .category-lang-btn {
   display: flex;
-  algit add .ign-items: center;
+  align-items: center;
   padding: 6px 12px;
   background-color: #FFFFFF;
   border: 1px solid #E2E0DD;
@@ -203,14 +203,11 @@
   line-height: 1.2;
 }
 
-.product-description {
-  font-size: 11px;
-  color: #777777;
-  margin: 0 0 8px 0;
-  line-height: 1.3;
+.your-class-name {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Sizdagi bor qator */
+  line-clamp: 2;         /* <-- Shu qatorni qo'shing (ogohlantirish yo'qoladi) */
   overflow: hidden;
 }
 
