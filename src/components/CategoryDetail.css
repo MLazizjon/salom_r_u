@@ -1,3 +1,4 @@
+
 /* Sahifa konteyneri */
 .category-detail-wrapper {
   width: 100%;
@@ -47,7 +48,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) translateX(4px);
+  transform: translate(-50%, -50%) translateX(0px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,19 +62,35 @@
 }
 
 /* Til tugmasi */
+
 .category-lang-btn {
-  display: flex;
+   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 6px;
   padding: 6px 12px;
+  min-width: 68px;
+  height: 44px;
   background-color: #FFFFFF;
-  border: 1px solid #E2E0DD;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 13px;
-  color: #222222;
+  color: var(--color-text-primary);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease, background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
 }
+
+.category-lang-btn img {
+    width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
 
 /* Asosiy kontent */
 .category-main-content {

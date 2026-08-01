@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './CategoryDetail.css';
 import logoImg from '../assets/images/logo.png';
-import PRODUCTS_DATA from '../data/maxsulotlar';
+import { supabase } from '../supabase/supabesa';
 
-// Bayroqlar
 import uzFlag from '../assets/images/flags/uz.png';
 import ruFlag from '../assets/images/flags/ru.png';
 import enFlag from '../assets/images/flags/en.png';
@@ -34,27 +33,81 @@ export default function CategoryDetail({
   onBack,
   onChangeLang
 }) {
-  // Kategoriyaga tegishli mahsulotlarni olish
-  const products = PRODUCTS_DATA[category?.id] || [];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      console.log("Tanlangan kategoriya obyekti:", category);
+
+      if (!category) {
+        setLoading(false);
+        return;
+      }
+      
+      try {
+        setLoading(true);
+
+        // Kategoriyaning barcha mumkin bo'lgan kalitlarini to'playmiz (id, slug va nomlari)
+        const categoryId = category.id;
+        const categorySlug = category.slug;
+        const categoryNameRu = category.name?.ru;
+        const categoryNameUz = category.name?.uz;
+
+        const possibleKeys = [
+          categoryId,
+          categorySlug,
+          categoryNameRu,
+          categoryNameUz
+        ].filter(Boolean);
+
+        console.log("Qidirish uchun ishlatilayotgan kalitlar:", possibleKeys);
+
+        // Supabase'dan barcha mahsulotlarni olib kelib, JavaScript orqali aniq filterlaymiz
+        const { data: allProducts, error } = await supabase
+          .from('products')
+          .select('*');
+
+        if (error) {
+          console.error('Mahsulotlarni olishda xatolik:', error.message);
+        } else if (allProducts) {
+          const filtered = allProducts.filter(item => {
+            return possibleKeys.some(key => 
+              String(item.category_id).trim().toLowerCase() === String(key).trim().toLowerCase() ||
+              String(item.category).trim().toLowerCase() === String(key).trim().toLowerCase()
+            );
+          });
+          setProducts(filtered);
+        }
+
+      } catch (err) {
+        console.error('Tarmoq xatosi:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProducts();
+  }, [category]);
+
+  const getImageUrl = (imagePath) => {
+    if (!imagePath) return '';
+    if (imagePath.startsWith('http')) return imagePath;
+    
+    const { data } = supabase.storage
+      .from('mahsulot') // Supabase bucket nomingiz
+      .getPublicUrl(imagePath);
+
+    return data.publicUrl;
+  };
 
   return (
     <div className="category-detail-wrapper fade-in">
-      {/* Header */}
       <header className="category-header">
-
         <button className="back-btn" onClick={onBack}>
-          <svg
-            className="back-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
+          <svg className="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
-
           <span>{UI_TEXT.backBtn[currentLang]}</span>
         </button>
 
@@ -62,144 +115,93 @@ export default function CategoryDetail({
           <img src={logoImg} alt="Shirin Tabaka" />
         </div>
 
-        {/* Til tugmasi */}
         <div className="lang-select-container">
           <button
             type="button"
             className="category-lang-btn"
             onClick={() => {
-              // Scroll joyini saqlash
-              sessionStorage.setItem(
-                'categoryScrollPosition',
-                window.scrollY
-              );
-
-              // Qaysi sahifadan kelganini saqlash
-              sessionStorage.setItem(
-                'returnPage',
-                'category'
-              );
-
-              // Til tanlash sahifasiga o'tish
+              sessionStorage.setItem('categoryScrollPosition', window.scrollY);
+              sessionStorage.setItem('returnPage', 'category');
               if (onChangeLang) {
                 onChangeLang();
               }
             }}
           >
-            <img
-              src={FLAGS[currentLang]}
-              alt={currentLang}
-              className="lang-flag-mini"
-            />
-
-            <span className="lang-code">
-              {currentLang.toUpperCase()}
-            </span>
-
-            <svg
-              className="chevron-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
+            <img src={FLAGS[currentLang]} alt={currentLang} className="lang-flag-mini" />
+            <span className="lang-code">{currentLang.toUpperCase()}</span>
+            <svg className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
         </div>
-
       </header>
 
-      {/* Main Content */}
       <main className="category-main-content">
-
-        {/* Banner */}
         <div className="category-banner-card">
-
           <div className="banner-info">
-
             <div className="banner-title-row">
-
               <img
-                src={category.image}
-                alt={category.name[currentLang]}
+                src={getImageUrl(category?.image)}
+                alt={category?.name?.[currentLang] || category?.name?.ru}
                 className="banner-mini-thumb"
               />
-
               <div>
-
                 <h1 className="banner-title">
-                  {category.name[currentLang]}
+                  {category?.name?.[currentLang] || category?.name?.ru}
                 </h1>
-
                 <span className="banner-count">
                   {products.length} {UI_TEXT.itemsCount[currentLang]}
                 </span>
-
               </div>
-
             </div>
-
             <p className="banner-desc">
-
-              {currentLang === 'uz' &&
-                'Tanlangan masalliqlardan tayyorlangan sarxill taomlar.'}
-
-              {currentLang === 'ru' &&
-                'Свежие блюда, приготовленные из отборных ингредиентов.'}
-
-              {currentLang === 'en' &&
-                'Fresh dishes made from selected high-quality ingredients.'}
-
+              {currentLang === 'uz' && 'Tanlangan masalliqlardan tayyorlangan sarxill taomlar.'}
+              {currentLang === 'ru' && 'Свежие блюда, приготовленные из отборных ингредиентов.'}
+              {currentLang === 'en' && 'Fresh dishes made from selected high-quality ingredients.'}
             </p>
-
           </div>
 
           <div className="banner-bg-image">
-            <img src={category.image} alt="" />
+            <img src={getImageUrl(category?.image)} alt="" />
           </div>
-
         </div>
 
-        {/* Products */}
-
-        <div className="products-grid">
-
-          {products.map((item) => (
-
-            <div key={item.id} className="product-card">
-
-              <div className="product-img-wrapper">
-
-                <img
-                  src={item.image}
-                  alt={item.name[currentLang]}
-                  className="product-img"
-                />
-
-              </div>
-
-              <div className="product-details">
-
-                <h3 className="product-name">
-                  {item.name[currentLang]}
-                </h3>
-
-                <div className="product-price">
-                  {item.price}
-                  <span> {UI_TEXT.currency[currentLang]}</span>
+        {loading ? (
+          <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '40px' }}>
+            Yuklanmoqda...
+          </p>
+        ) : products.length === 0 ? (
+          <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '40px' }}>
+            Bu kategoriyada hozircha mahsulotlar yo'q.
+          </p>
+        ) : (
+          <div className="products-grid">
+            {products.map((item) => (
+              <div key={item.id} className="product-card">
+                <div className="product-img-wrapper">
+                  <img
+                    src={getImageUrl(item.image)}
+                    alt={item.name?.[currentLang] || item.name?.ru}
+                    className="product-img"
+                    onError={(e) => {
+                      console.error('Rasm topilmadi:', e.target.src);
+                    }}
+                  />
                 </div>
-
+                <div className="product-details">
+                  <h3 className="product-name">
+                    {item.name?.[currentLang] || item.name?.ru}
+                  </h3>
+                  <div className="product-price">
+                    {item.price}
+                    <span> {UI_TEXT.currency[currentLang]}</span>
+                  </div>
+                </div>
               </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
+            ))}
+          </div>
+        )}
       </main>
-
     </div>
   );
 }

@@ -7,20 +7,21 @@ import CategoryDetail from './components/CategoryDetail';
 import LanguageSelect from './features/language-select/LanguageSelect';
 
 export default function App() {
+  // Tilni localStorage'dan o'qish (default: 'uz')
   const [currentLanguage, setCurrentLanguage] = useState(
-    localStorage.getItem('app_language') || 'ru'
+    () => localStorage.getItem('app_language') || 'uz'
   );
 
+  // Tanlangan kategoriya
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Qaysi sahifa ochiq
+  // Qaysi sahifa ochiq: 'main' yoki 'category'
   const [currentPage, setCurrentPage] = useState('main');
-  // main | category
 
   // Til tanlash sahifasi ochiqmi
-  const [showLanguagePage, setShowLanguagePage] = useState(true);
+  const [showLanguagePage, setShowLanguagePage] = useState(false);
 
-  // AOS ishga tushirish
+  // AOS (animatsiya kutubxonasi) ni ishga tushirish
   useEffect(() => {
     AOS.init({
       duration: 700,
@@ -35,12 +36,12 @@ export default function App() {
     AOS.refresh();
   }, [showLanguagePage, selectedCategory]);
 
-  // Burger menu
+  // Burger menu bosilganda
   const handleMenuToggle = () => {
     console.log('Burger menyu bosildi');
   };
 
-  // 🔥 Saytni boshidan boshlash (YANGI)
+  // Saytni boshidan boshlash
   const handleRestart = () => {
     setSelectedCategory(null);
     setCurrentPage('main');
@@ -56,29 +57,33 @@ export default function App() {
     });
   };
 
-  // Til tugmasi bosilganda
+  // Til tugmasi bosilganda ochiladigan funksiya
   const openLanguagePage = () => {
     if (selectedCategory) {
       setCurrentPage('category');
+      sessionStorage.setItem('returnPage', 'category');
     } else {
       setCurrentPage('main');
+      sessionStorage.setItem('returnPage', 'main');
     }
-
     setShowLanguagePage(true);
   };
 
-  // LanguageSelect dan qaytadi
+  // LanguageSelect dan til tanlab qaytganda
   const handleLanguageSelect = (lang) => {
+    // 1. LocalStorage ga saqlaymiz
+    localStorage.setItem('app_language', lang);
+    
+    // 2. State'ni yangilaymiz (katalog nomlari darhol o'zgarishi uchun)
     setCurrentLanguage(lang);
-
+    
+    // 3. Til tanlash sahifasini yopamiz
     setShowLanguagePage(false);
 
-    // Scroll joyini tiklash
+    // Oldingi qolgan joyiga (scroll pozitsiyasiga) qaytarish
     setTimeout(() => {
-      const key =
-        currentPage === 'category'
-          ? 'categoryScrollPosition'
-          : 'mainScrollPosition';
+      const returnPage = sessionStorage.getItem('returnPage');
+      const key = returnPage === 'category' ? 'categoryScrollPosition' : 'mainScrollPosition';
 
       const scroll = Number(sessionStorage.getItem(key) || 0);
 
@@ -93,32 +98,35 @@ export default function App() {
     <div className="app-main-container">
 
       {showLanguagePage ? (
-
+        // 1. Til tanlash sahifasi
         <LanguageSelect
           onSelectLanguage={handleLanguageSelect}
         />
 
       ) : selectedCategory ? (
-
+        // 2. Tanlangan kategoriya ichidagi mahsulotlar sahifasi
         <CategoryDetail
           category={selectedCategory}
           currentLang={currentLanguage}
-          onBack={() => setSelectedCategory(null)}
+          onBack={() => {
+            setSelectedCategory(null);
+            setCurrentPage('main');
+          }}
           onChangeLang={openLanguagePage}
         />
 
       ) : (
-
+        // 3. Asosiy kategoriyalar sahifasi
         <MainSite
           currentLanguage={currentLanguage}
           onMenuToggle={handleMenuToggle}
           onChangeLanguage={openLanguagePage}
           onRestart={handleRestart}
-          onSelectCategory={(category) =>
-            setSelectedCategory(category)
-          }
+          onSelectCategory={(category) => {
+            setSelectedCategory(category);
+            setCurrentPage('category');
+          }}
         />
-
       )}
 
     </div>
