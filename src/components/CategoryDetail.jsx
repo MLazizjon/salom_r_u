@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CategoryDetail.css';
 import logoImg from '../assets/images/logo.png';
-import { supabase } from '../supabase/supabesa';
+import { supabase } from '../supabase/supabesa'; // Yo'lni to'g'rilang (supabesa emas, supabase)
 
 import uzFlag from '../assets/images/flags/uz.png';
 import ruFlag from '../assets/images/flags/ru.png';
@@ -38,8 +38,6 @@ export default function CategoryDetail({
 
   useEffect(() => {
     async function fetchProducts() {
-      console.log("Tanlangan kategoriya obyekti:", category);
-
       if (!category) {
         setLoading(false);
         return;
@@ -51,19 +49,19 @@ export default function CategoryDetail({
         // Kategoriyaning barcha mumkin bo'lgan kalitlarini to'playmiz (id, slug va nomlari)
         const categoryId = category.id;
         const categorySlug = category.slug;
-        const categoryNameRu = category.name?.ru;
-        const categoryNameUz = category.name?.uz;
+        const categoryNameRu = typeof category.name === 'object' ? category.name?.ru : category.name_ru;
+        const categoryNameUz = typeof category.name === 'object' ? category.name?.uz : category.name_uz;
+        const categoryNameEn = typeof category.name === 'object' ? category.name?.en : category.name_en;
 
         const possibleKeys = [
           categoryId,
           categorySlug,
           categoryNameRu,
-          categoryNameUz
+          categoryNameUz,
+          categoryNameEn
         ].filter(Boolean);
 
-        console.log("Qidirish uchun ishlatilayotgan kalitlar:", possibleKeys);
-
-        // Supabase'dan barcha mahsulotlarni olib kelib, JavaScript orqali aniq filterlaymiz
+        // Supabase'dan barcha mahsulotlarni olib kelamiz
         const { data: allProducts, error } = await supabase
           .from('products')
           .select('*');
@@ -71,10 +69,11 @@ export default function CategoryDetail({
         if (error) {
           console.error('Mahsulotlarni olishda xatolik:', error.message);
         } else if (allProducts) {
+          // Filtr siyosati: category_id yoki category maydoni mos kelishini tekshiramiz
           const filtered = allProducts.filter(item => {
             return possibleKeys.some(key => 
-              String(item.category_id).trim().toLowerCase() === String(key).trim().toLowerCase() ||
-              String(item.category).trim().toLowerCase() === String(key).trim().toLowerCase()
+              String(item.category_id || '').trim().toLowerCase() === String(key).trim().toLowerCase() ||
+              String(item.category || '').trim().toLowerCase() === String(key).trim().toLowerCase()
             );
           });
           setProducts(filtered);
@@ -95,10 +94,33 @@ export default function CategoryDetail({
     if (imagePath.startsWith('http')) return imagePath;
     
     const { data } = supabase.storage
-      .from('mahsulot') // Supabase bucket nomingiz
+      .from('mahsulot') // Supabase bucket nomi
       .getPublicUrl(imagePath);
 
     return data.publicUrl;
+  };
+
+  // Kategoriya nomini tanlangan tilga moslab chiqarish (JSON yoki alohida ustunlarni tekshiradi)
+  const getCategoryName = (cat) => {
+    if (!cat) return '';
+    if (currentLang === 'uz') {
+      return cat.name_uz || cat.name?.uz || cat.name_ru || cat.name?.ru || 'Kategoriya';
+    } else if (currentLang === 'ru') {
+      return cat.name_ru || cat.name?.ru || cat.name_uz || cat.name?.uz || 'Категория';
+    } else if (currentLang === 'en') {
+      return cat.name_en || cat.name?.en || cat.name_uz || cat.name?.uz || 'Category';
+    }
+    return cat.name_ru || cat.name?.ru || 'Category';
+  };
+
+  // Mahsulot nomini tanlangan tilga moslab chiqarish
+  const getProductName = (item) => {
+    if (!item || !item.name) return '';
+    if (typeof item.name === 'object') {
+      return item.name[currentLang] || item.name.ru || item.name.uz || item.name.en || '';
+    }
+    // Agar name string shaklida bo'lsa
+    return item.name;
   };
 
   return (
@@ -142,12 +164,12 @@ export default function CategoryDetail({
             <div className="banner-title-row">
               <img
                 src={getImageUrl(category?.image)}
-                alt={category?.name?.[currentLang] || category?.name?.ru}
+                alt={getCategoryName(category)}
                 className="banner-mini-thumb"
               />
               <div>
                 <h1 className="banner-title">
-                  {category?.name?.[currentLang] || category?.name?.ru}
+                  {getCategoryName(category)}
                 </h1>
                 <span className="banner-count">
                   {products.length} {UI_TEXT.itemsCount[currentLang]}
@@ -181,7 +203,7 @@ export default function CategoryDetail({
                 <div className="product-img-wrapper">
                   <img
                     src={getImageUrl(item.image)}
-                    alt={item.name?.[currentLang] || item.name?.ru}
+                    alt={getProductName(item)}
                     className="product-img"
                     onError={(e) => {
                       console.error('Rasm topilmadi:', e.target.src);
@@ -190,7 +212,7 @@ export default function CategoryDetail({
                 </div>
                 <div className="product-details">
                   <h3 className="product-name">
-                    {item.name?.[currentLang] || item.name?.ru}
+                    {getProductName(item)}
                   </h3>
                   <div className="product-price">
                     {item.price}

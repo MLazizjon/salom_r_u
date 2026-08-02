@@ -103,7 +103,7 @@ export default function App() {
           onSelectLanguage={handleLanguageSelect}
         />
 
-      ) : selectedCategory ? (
+      ) : currentPage === 'category' && selectedCategory ? (
         // 2. Tanlangan kategoriya ichidagi mahsulotlar sahifasi
         <CategoryDetail
           category={selectedCategory}

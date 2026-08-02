@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './MainSite.css';
-import { supabase } from '../supabase/supabesa'; // Supabase ulanishi
+import { supabase } from '../supabase/supabesa'; // Yo'lni o'zingiznikiga to'g'rilang
 
 // Rasmlar va bayroqlar
 import logoImg from '../assets/images/logo.png';
@@ -32,7 +32,8 @@ export default function MainSite({
       try {
         const { data, error } = await supabase
           .from('categories')
-          .select('*');
+          .select('*')
+          .eq('status', 'active'); // Faqat faol kategoriyalarni chiqarish uchun (xohlasangiz olib tashlashingiz mumkin)
 
         if (error) {
           console.error('Kategoriyalarni olishda xatolik:', error.message);
@@ -124,40 +125,48 @@ export default function MainSite({
       <main className="categories-container">
         {loading ? (
           <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '50px' }}>Yuklanmoqda...</p>
+        ) : categories.length === 0 ? (
+          <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '50px' }}>Hozircha kategoriyalar yo'q</p>
         ) : (
           <div className="categories-grid">
-            {categories.map((category, index) => (
-              <div
-                key={category.id}
-                className="category-card"
-                onClick={() => {
-                  if (onSelectCategory) {
-                    onSelectCategory(category);
-                  }
-                }}
-                data-aos="fade-up"
-                data-aos-delay={(index % 6) * 50 + 100}
-              >
-                <img
-                  src={getImageUrl(category.image)}
-                  alt="Kategoriya"
-                  className="category-img"
-                  loading="lazy"
-                />
-                <div className="category-overlay">
-                  <span className="category-title">
-                    {/* Tanlangan tilga qarab to'g'ri ustunni chiqarish */}
-                    {currentLanguage === 'uz' && (category.name_uz || category.name?.uz)}
-                    {currentLanguage === 'ru' && (category.name_ru || category.name?.ru)}
-                    {currentLanguage === 'en' && (category.name_en || category.name?.en)}
+            {categories.map((category, index) => {
+              // Tilga mos nomni aniqlash (ustun ko'rinishida ham, JSON ko'rinishida ham ishlaydi)
+              let categoryName = 'Kategoriya';
+              
+              if (currentLanguage === 'uz') {
+                categoryName = category.name_uz || category.name?.uz || category.name_ru || 'Kategoriya';
+              } else if (currentLanguage === 'ru') {
+                categoryName = category.name_ru || category.name?.ru || category.name_uz || 'Категория';
+              } else if (currentLanguage === 'en') {
+                categoryName = category.name_en || category.name?.en || category.name_uz || 'Category';
+              }
 
-                    {/* Agar yuqoridagilar bo'sh bo'lib qolsa zahira variant */}
-                    {!category.name_uz && !category.name_ru && !category.name_en && 
-                      (category.name?.[currentLanguage] || category.name?.ru || 'Kategoriya')}
-                  </span>
+              return (
+                <div
+                  key={category.id}
+                  className="category-card"
+                  onClick={() => {
+                    if (onSelectCategory) {
+                      onSelectCategory(category);
+                    }
+                  }}
+                  data-aos="fade-up"
+                  data-aos-delay={(index % 6) * 50 + 100}
+                >
+                  <img
+                    src={getImageUrl(category.image)}
+                    alt={categoryName}
+                    className="category-img"
+                    loading="lazy"
+                  />
+                  <div className="category-overlay">
+                    <span className="category-title">
+                      {categoryName}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </main>
