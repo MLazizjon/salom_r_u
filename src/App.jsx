@@ -18,8 +18,8 @@ export default function App() {
   // Qaysi sahifa ochiq: 'main' yoki 'category'
   const [currentPage, setCurrentPage] = useState('main');
 
-  // Til tanlash sahifasi ochiqmi
-  const [showLanguagePage, setShowLanguagePage] = useState(false);
+  // Sayt ilk bor ochilganda til tanlash sahifasi chiqishi uchun true qilib qo'yildi
+  const [showLanguagePage, setShowLanguagePage] = useState(true);
 
   // AOS (animatsiya kutubxonasi) ni ishga tushirish
   useEffect(() => {
@@ -77,7 +77,7 @@ export default function App() {
     // 2. State'ni yangilaymiz (katalog nomlari darhol o'zgarishi uchun)
     setCurrentLanguage(lang);
     
-    // 3. Til tanlash sahifasini yopamiz
+    // 3. Til tanlash sahifasini yopamiz (shunda asosiy katalog sahifasiga o'tadi)
     setShowLanguagePage(false);
 
     // Oldingi qolgan joyiga (scroll pozitsiyasiga) qaytarish
