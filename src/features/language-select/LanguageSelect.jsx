@@ -112,7 +112,7 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
         </span>
 
         <span className="brand-label">
-          Powered by Shirin Tabaka
+          Powered by IT TAT TEAM
         </span>
       </div>
 

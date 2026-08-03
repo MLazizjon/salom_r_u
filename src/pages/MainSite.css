@@ -22,6 +22,7 @@
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -39,267 +40,166 @@
 /* ===========================
    PREMIUM ORTGA BUTTON
 =========================== */
-
-.menu-btn{
-    position:relative;
-    width:132px;
-    height:52px;
-
-    border:none;
-    outline:none;
-
-    border-radius:999px;
-
-    background:#ffffff;
-
-    display:flex;
-    align-items:center;
-
-    justify-content:flex-start;
-
-    padding:6px;
-
-    cursor:pointer;
-
-    overflow:hidden;
-
-    flex-shrink:0;
-
-    -webkit-tap-highlight-color:transparent;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.08),
-        0 2px 8px rgba(92,21,28,.10);
-
-    transition:
-        transform .2s ease,
-        box-shadow .25s ease;
+.menu-btn {
+  position: relative;
+  width: 132px;
+  height: 52px;
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .08), 0 2px 8px rgba(92, 21, 28, .10);
+  transition: transform .2s ease, box-shadow .25s ease;
 }
 
-.menu-btn:hover{
-
-    transform:translateY(-1px);
-
-    box-shadow:
-        0 14px 28px rgba(92,21,28,.15),
-        0 4px 10px rgba(0,0,0,.08);
+.menu-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(92, 21, 28, .15), 0 4px 10px rgba(0, 0, 0, .08);
 }
 
-.menu-btn:active{
-
-    transform:scale(.97);
+.menu-btn:active {
+  transform: scale(.97);
 }
 
-.menu-btn-circle{
-
-    width:40px;
-    height:40px;
-
-    border-radius:50%;
-
-    background:#5C151C;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#fff;
-
-    position:relative;
-
-    z-index:3;
-
-    transition:all .45s cubic-bezier(.22,1,.36,1);
+.menu-btn-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #5C151C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  z-index: 3;
+  transition: all .45s cubic-bezier(.22, 1, .36, 1);
 }
 
-.menu-btn-circle svg{
-
-    width:20px;
-
-    height:20px;
-
-    transition:transform .35s;
+.menu-btn-circle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform .35s;
 }
 
-.menu-btn-text{
-
-    margin-left:16px;
-
-    color:#5C151C;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    position:relative;
-
-    z-index:3;
-
-    transition:
-        color .35s,
-        transform .35s;
+.menu-btn-text {
+  margin-left: 16px;
+  color: #5C151C;
+  font-size: 15px;
+  font-weight: 700;
+  position: relative;
+  z-index: 3;
+  transition: color .35s, transform .35s;
 }
 
 /* ===================================
    PREMIUM BUTTON ANIMATION
 =================================== */
-
-.menu-btn.leaving .menu-btn-circle{
-
-    width:120px;
-
-    border-radius:999px;
-
-    justify-content:flex-start;
-
-    padding-left:14px;
-
-    background:linear-gradient(
-        135deg,
-        #5C151C 0%,
-        #7B1F28 100%
-    );
+.menu-btn.leaving .menu-btn-circle {
+  width: 120px;
+  border-radius: 999px;
+  justify-content: flex-start;
+  padding-left: 14px;
+  background: linear-gradient(135deg, #5C151C 0%, #7B1F28 100%);
 }
 
-.menu-btn.leaving .menu-btn-circle svg{
-
-    transform:translateX(-2px);
+.menu-btn.leaving .menu-btn-circle svg {
+  transform: translateX(-2px);
 }
 
-.menu-btn.leaving .menu-btn-text{
-
-    color:#ffffff;
-
-    transform:translateX(-48px);
+.menu-btn.leaving .menu-btn-text {
+  color: #ffffff;
+  transform: translateX(-48px);
 }
 
-/* Hover */
-
-.menu-btn:hover .menu-btn-circle{
-
-    transform:scale(1.04);
+.menu-btn:hover .menu-btn-circle {
+  transform: scale(1.04);
 }
 
-.menu-btn:hover .menu-btn-text{
-
-    letter-spacing:.3px;
+.menu-btn:hover .menu-btn-text {
+  letter-spacing: .3px;
 }
 
-/* Focus */
-
-.menu-btn:focus-visible{
-
-    outline:2px solid rgba(92,21,28,.35);
-
-    outline-offset:3px;
+.menu-btn:focus-visible {
+  outline: 2px solid rgba(92, 21, 28, .35);
+  outline-offset: 3px;
 }
 
 /* ===================================
    PREMIUM FINISH ANIMATION
 =================================== */
-
-.menu-btn::before{
-    content:"";
-    position:absolute;
-    left:6px;
-    top:6px;
-
-    width:40px;
-    height:40px;
-
-    border-radius:999px;
-
-    background:linear-gradient(
-        135deg,
-        #5C151C 0%,
-        #7B1F28 100%
-    );
-
-    z-index:1;
-
-    transition:
-        width .45s cubic-bezier(.22,1,.36,1),
-        left .45s cubic-bezier(.22,1,.36,1),
-        opacity .3s;
+.menu-btn::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5C151C 0%, #7B1F28 100%);
+  z-index: 1;
+  transition: width .45s cubic-bezier(.22, 1, .36, 1), left .45s cubic-bezier(.22, 1, .36, 1), opacity .3s;
 }
 
-.menu-btn.leaving::before{
-
-    width:calc(100% - 12px);
-
-    left:6px;
+.menu-btn.leaving::before {
+  width: calc(100% - 12px);
+  left: 6px;
 }
 
-.menu-btn.leaving{
-
-    box-shadow:
-        0 12px 30px rgba(92,21,28,.25),
-        0 4px 12px rgba(0,0,0,.08);
+.menu-btn.leaving {
+  box-shadow: 0 12px 30px rgba(92, 21, 28, .25), 0 4px 12px rgba(0, 0, 0, .08);
 }
 
-.menu-btn.leaving .menu-btn-circle{
-
-    background:transparent;
+.menu-btn.leaving .menu-btn-circle {
+  background: transparent;
 }
 
-.menu-btn.leaving .menu-btn-circle svg{
-
-    color:#ffffff;
-
-    transform:translateX(-2px);
+.menu-btn.leaving .menu-btn-circle svg {
+  color: #ffffff;
+  transform: translateX(-2px);
 }
 
-.menu-btn.leaving .menu-btn-text{
-
-    color:#ffffff;
-
-    transform:translateX(-42px);
+.menu-btn.leaving .menu-btn-text {
+  color: #ffffff;
+  transform: translateX(-42px);
 }
 
-.menu-btn svg{
-
-    position:relative;
-
-    z-index:3;
+.menu-btn svg {
+  position: relative;
+  z-index: 3;
 }
 
 .menu-btn-circle,
-.menu-btn-text{
-
-    will-change:transform;
+.menu-btn-text {
+  will-change: transform;
 }
 
-@media (hover:hover){
-
-.menu-btn:hover{
-
-    transform:translateY(-2px);
-
+@media (hover: hover) {
+  .menu-btn:hover {
+    transform: translateY(-2px);
+  }
+  .menu-btn:hover::before {
+    opacity: .96;
+  }
 }
 
-.menu-btn:hover::before{
-
-    opacity:.96;
+@media (prefers-reduced-motion: reduce) {
+  .menu-btn,
+  .menu-btn::before,
+  .menu-btn-circle,
+  .menu-btn-text {
+    transition: none !important;
+  }
 }
 
-}
-
-@media (prefers-reduced-motion:reduce){
-
-.menu-btn,
-.menu-btn::before,
-.menu-btn-circle,
-.menu-btn-text{
-
-    transition:none !important;
-
-}
-
-}
-
-/* HEADER LOGO: IDEAL MARKAZLASHTIRISH VA BIROZ KATTALASHTIRISH */
+/* HEADER LOGO */
 .header-logo {
   flex: 1;
   display: flex;
@@ -316,7 +216,7 @@
   transform: translateX(-20px);
 }
 
-/* O'ng tomondagi til switcher container */
+/* Lang Switcher */
 .lang-switcher-btn {
   display: flex;
   align-items: center;
@@ -332,7 +232,7 @@
   font-size: 13px;
   color: var(--color-text-primary);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   transition: transform 0.15s ease, background-color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
@@ -350,6 +250,141 @@
   border-radius: 3px;
 }
 
+/* ==========================================
+   3 TALIK MULTI-BANNER SLIDER
+========================================== */
+.banner-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 190px;
+  margin: 10px 0 16px 0;
+  overflow: hidden;
+  background-color: #121212;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-item.side-banner {
+  width: 26%;
+  height: 80%;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0.45;
+  filter: brightness(0.6);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+.banner-item.side-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-item.side-banner:hover {
+  opacity: 0.75;
+  filter: brightness(0.85);
+}
+
+.banner-item.active-banner {
+  width: 62%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  animation: centerZoom 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes centerZoom {
+  from {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.banner-item.active-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.25s ease, transform 0.2s ease;
+  z-index: 10;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.banner-arrow:hover {
+  background-color: #5C151C;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.banner-prev {
+  left: 8px;
+}
+
+.banner-next {
+  right: 8px;
+}
+
+.banner-dots {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+
+.banner-dot {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.banner-dot.active {
+  background-color: #ffffff;
+  width: 16px;
+  border-radius: 4px;
+}
+
 /* Categories Grid */
 .categories-container {
   padding: 10px 16px 30px 16px;
@@ -362,7 +397,6 @@
   gap: 12px;
 }
 
-/* Card kontenti (Standart/Mobil) */
 .category-card {
   position: relative;
   width: 100%;
@@ -438,7 +472,6 @@
 /* ==========================================
    PLANSHETLAR UCHUN
 ========================================== */
-
 @media screen and (min-width: 600px) and (min-height: 750px) {
   .main-page-wrapper {
     max-width: 680px;
@@ -450,6 +483,10 @@
 
   .header-logo img {
     height: 90px;
+  }
+
+  .banner-slider-container {
+    height: 230px;
   }
 
   .categories-grid {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CategoryDetail.css';
 import logoImg from '../assets/images/logo.png';
-import { supabase } from '../supabase/supabesa'; // Yo'lni to'g'rilang (supabesa emas, supabase)
+import { supabase } from '../supabase/supabesa';
 
 import uzFlag from '../assets/images/flags/uz.png';
 import ruFlag from '../assets/images/flags/ru.png';
@@ -24,6 +24,11 @@ const UI_TEXT = {
     uz: 'soʻm',
     ru: 'сум',
     en: 'UZS'
+  },
+  closeBtn: {
+    uz: 'Yopish',
+    ru: 'Закрыть',
+    en: 'Close'
   }
 };
 
@@ -35,6 +40,19 @@ export default function CategoryDetail({
 }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  // Modal ochiq paytda sahifa skrol qilishini bloklash uchun useEffect
+  useEffect(() => {
+    if (selectedProduct) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [selectedProduct]);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -46,7 +64,6 @@ export default function CategoryDetail({
       try {
         setLoading(true);
 
-        // Kategoriyaning barcha mumkin bo'lgan kalitlarini to'playmiz (id, slug va nomlari)
         const categoryId = category.id;
         const categorySlug = category.slug;
         const categoryNameRu = typeof category.name === 'object' ? category.name?.ru : category.name_ru;
@@ -61,7 +78,6 @@ export default function CategoryDetail({
           categoryNameEn
         ].filter(Boolean);
 
-        // Supabase'dan barcha mahsulotlarni olib kelamiz
         const { data: allProducts, error } = await supabase
           .from('products')
           .select('*');
@@ -69,7 +85,6 @@ export default function CategoryDetail({
         if (error) {
           console.error('Mahsulotlarni olishda xatolik:', error.message);
         } else if (allProducts) {
-          // Filtr siyosati: category_id yoki category maydoni mos kelishini tekshiramiz
           const filtered = allProducts.filter(item => {
             return possibleKeys.some(key => 
               String(item.category_id || '').trim().toLowerCase() === String(key).trim().toLowerCase() ||
@@ -94,13 +109,12 @@ export default function CategoryDetail({
     if (imagePath.startsWith('http')) return imagePath;
     
     const { data } = supabase.storage
-      .from('mahsulot') // Supabase bucket nomi
+      .from('mahsulot')
       .getPublicUrl(imagePath);
 
     return data.publicUrl;
   };
 
-  // Kategoriya nomini tanlangan tilga moslab chiqarish (JSON yoki alohida ustunlarni tekshiradi)
   const getCategoryName = (cat) => {
     if (!cat) return '';
     if (currentLang === 'uz') {
@@ -113,14 +127,22 @@ export default function CategoryDetail({
     return cat.name_ru || cat.name?.ru || 'Category';
   };
 
-  // Mahsulot nomini tanlangan tilga moslab chiqarish
   const getProductName = (item) => {
     if (!item || !item.name) return '';
     if (typeof item.name === 'object') {
       return item.name[currentLang] || item.name.ru || item.name.uz || item.name.en || '';
     }
-    // Agar name string shaklida bo'lsa
     return item.name;
+  };
+
+  const getProductDescription = (item) => {
+    if (!item) return '';
+    const desc = item.description || item.desc;
+    if (!desc) return currentLang === 'uz' ? 'Tavsif mavjud emas.' : currentLang === 'ru' ? 'Описание отсутствует.' : 'No description available.';
+    if (typeof desc === 'object') {
+      return desc[currentLang] || desc.ru || desc.uz || desc.en || '';
+    }
+    return desc;
   };
 
   return (
@@ -189,25 +211,26 @@ export default function CategoryDetail({
         </div>
 
         {loading ? (
-          <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '40px' }}>
+          <p style={{ textAlign: 'center', color: '#666', fontSize: '18px', marginTop: '40px' }}>
             Yuklanmoqda...
           </p>
         ) : products.length === 0 ? (
-          <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '40px' }}>
+          <p style={{ textAlign: 'center', color: '#666', fontSize: '18px', marginTop: '40px' }}>
             Bu kategoriyada hozircha mahsulotlar yo'q.
           </p>
         ) : (
           <div className="products-grid">
             {products.map((item) => (
-              <div key={item.id} className="product-card">
+              <div 
+                key={item.id} 
+                className="product-card"
+                onClick={() => setSelectedProduct(item)}
+              >
                 <div className="product-img-wrapper">
                   <img
                     src={getImageUrl(item.image)}
                     alt={getProductName(item)}
                     className="product-img"
-                    onError={(e) => {
-                      console.error('Rasm topilmadi:', e.target.src);
-                    }}
                   />
                 </div>
                 <div className="product-details">
@@ -224,6 +247,39 @@ export default function CategoryDetail({
           </div>
         )}
       </main>
+
+      {/* MAHSULOT KATTA MODAL OYNASI */}
+      {selectedProduct && (
+        <div className="product-modal-overlay" onClick={() => setSelectedProduct(null)}>
+          <div className="product-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setSelectedProduct(null)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            <div className="modal-img-wrapper">
+              <img 
+                src={getImageUrl(selectedProduct.image)} 
+                alt={getProductName(selectedProduct)} 
+                className="modal-img"
+              />
+            </div>
+
+            <div className="modal-info-wrapper">
+              <h2 className="modal-product-name">{getProductName(selectedProduct)}</h2>
+              <p className="modal-product-desc">{getProductDescription(selectedProduct)}</p>
+              
+              <div className="modal-footer-row">
+                <div className="modal-product-price">
+                  {selectedProduct.price} <span>{UI_TEXT.currency[currentLang]}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
