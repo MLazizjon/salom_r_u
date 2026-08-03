@@ -42,7 +42,7 @@ export default function CategoryDetail({
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Modal ochiq paytda sahifa skrol qilishini bloklash uchun useEffect
+  // Modal ochiq paytda sahifa skrol qilishini bloklash
   useEffect(() => {
     if (selectedProduct) {
       document.body.classList.add('modal-open');
