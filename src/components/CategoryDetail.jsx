@@ -185,7 +185,7 @@ export default function CategoryDetail({
           <div className="banner-info">
             <div className="banner-title-row">
               <img
-                src={getImageUrl(category?.image)}
+                src={getImageUrl(category?.image_url || category?.image)}
                 alt={getCategoryName(category)}
                 className="banner-mini-thumb"
               />
@@ -206,7 +206,7 @@ export default function CategoryDetail({
           </div>
 
           <div className="banner-bg-image">
-            <img src={getImageUrl(category?.image)} alt="" />
+            <img src={getImageUrl(category?.image_url || category?.image)} alt="" />
           </div>
         </div>
 
@@ -228,7 +228,7 @@ export default function CategoryDetail({
               >
                 <div className="product-img-wrapper">
                   <img
-                    src={getImageUrl(item.image)}
+                    src={getImageUrl(item.image_url || item.image)}
                     alt={getProductName(item)}
                     className="product-img"
                   />
@@ -261,7 +261,7 @@ export default function CategoryDetail({
 
             <div className="modal-img-wrapper">
               <img 
-                src={getImageUrl(selectedProduct.image)} 
+                src={getImageUrl(selectedProduct.image_url || selectedProduct.image)} 
                 alt={getProductName(selectedProduct)} 
                 className="modal-img"
               />
