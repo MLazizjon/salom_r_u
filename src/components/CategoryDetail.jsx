@@ -87,6 +87,10 @@ export default function CategoryDetail({
           console.error('Mahsulotlarni olishda xatolik:', error.message);
         } else if (allProducts) {
           const filtered = allProducts.filter(item => {
+            // Nofaol mahsulotlarni yashirish (status faol bo'lishi shart)
+            const prodStatus = item.status || 'active';
+            if (prodStatus !== 'active') return false;
+
             return possibleKeys.some(key => 
               String(item.category_id || '').trim().toLowerCase() === String(key).trim().toLowerCase() ||
               String(item.category || '').trim().toLowerCase() === String(key).trim().toLowerCase()
@@ -146,10 +150,6 @@ export default function CategoryDetail({
     return desc;
   };
 
-  // Modalni alohida komponent sifatida ajratdik, chunki uni portal orqali
-  // to'g'ridan-to'g'ri document.body ichiga chiqaramiz. Shunda u
-  // wrapper'dagi transform/scroll holatidan mustaqil bo'lib, har doim
-  // ekran markazida va to'liq enida chiqadi.
   const modalContent = selectedProduct && (
     <div className="product-modal-overlay" onClick={() => setSelectedProduct(null)}>
       <div className="product-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -285,7 +285,6 @@ export default function CategoryDetail({
         )}
       </main>
 
-      {/* MAHSULOT KATTA MODAL OYNASI — endi portal orqali body'ga chiqadi */}
       {selectedProduct && createPortal(modalContent, document.body)}
     </div>
   );
