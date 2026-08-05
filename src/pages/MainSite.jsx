@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './MainSite.css';
 import { supabase } from '../supabase/supabesa';
 
@@ -8,7 +8,7 @@ import uzFlag from '../assets/images/flags/uz.png';
 import ruFlag from '../assets/images/flags/ru.png';
 import enFlag from '../assets/images/flags/en.png';
 
-// Har bir banner uchun alohida va takrorlanmaydigan nomlar beramiz
+// Banner rasmlari
 import banner1 from '../assets/products/main-courses/mainCourse7.jpg';
 import banner2 from '../assets/products/main-courses/mainCourse18.jpg';
 import banner3 from '../assets/products/main-courses/mainCourse10.jpg';
@@ -24,7 +24,12 @@ const FLAGS = {
   en: enFlag
 };
 
-// Array ichiga hammasini qo'shamiz
+const UI_TEXT = {
+  backBtn: { uz: 'Ortga', ru: 'Назад', en: 'Back' },
+  loading: { uz: 'Yuklanmoqda...', ru: 'Загрузка...', en: 'Loading...' },
+  noCategories: { uz: "Hozircha kategoriyalar yo'q", ru: 'Категории пока отсутствуют', en: 'No categories available yet' }
+};
+
 const STATIC_BANNERS = [
   { id: 1, image: banner1, title: 'Banner 1' },
   { id: 2, image: banner2, title: 'Banner 2' },
@@ -49,7 +54,11 @@ export default function MainSite({
   const [loading, setLoading] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
 
-  // Kategoriyalarni Supabase'dan olish
+  // Swipe gesture (barmoq bilan surish) uchun state-lar
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  // Supabase'dan kategoriyalarni yuklash
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -81,7 +90,7 @@ export default function MainSite({
     }
   }, []);
 
-  // Har 3 sekundda avtomatik o'zgarishi
+  // Avtomatik almashtirish (3 sekund)
   useEffect(() => {
     const interval = setInterval(() => {
       handleNextBanner();
@@ -90,13 +99,36 @@ export default function MainSite({
     return () => clearInterval(interval);
   }, [currentBannerIndex]);
 
-  // Strelkalar orqali o'tkazish funksiyalari
   const handleNextBanner = () => {
     setCurrentBannerIndex((prevIndex) => (prevIndex + 1) % STATIC_BANNERS.length);
   };
 
   const handlePrevBanner = () => {
     setCurrentBannerIndex((prevIndex) => (prevIndex - 1 + STATIC_BANNERS.length) % STATIC_BANNERS.length);
+  };
+
+  // Barmoq bilan surish (Touch Events)
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    
+    // Minimal 50px surilsa keyingi/oldingiga o'tadi
+    if (distance > 50) {
+      handleNextBanner();
+    } else if (distance < -50) {
+      handlePrevBanner();
+    }
+
+    touchStartX.current = 0;
+    touchEndX.current = 0;
   };
 
   const getImageUrl = (imagePath) => {
@@ -117,30 +149,42 @@ export default function MainSite({
     }, 450);
   };
 
-  // 3 talik karusel uchun indexlarni hisoblaymiz (Chapdagi, O'rtadagi, O'ngdagi)
-  const prevIndex = (currentBannerIndex - 1 + STATIC_BANNERS.length) % STATIC_BANNERS.length;
-  const nextIndex = (currentBannerIndex + 1) % STATIC_BANNERS.length;
+  // Har bir bannerning dinamik klassi va joylashuvini aniqlash
+  const getSlideClass = (index) => {
+    const total = STATIC_BANNERS.length;
+    
+    if (index === currentBannerIndex) {
+      return 'slide active';
+    }
+    if (index === (currentBannerIndex - 1 + total) % total) {
+      return 'slide prev';
+    }
+    if (index === (currentBannerIndex + 1) % total) {
+      return 'slide next';
+    }
+    return 'slide hidden';
+  };
 
   return (
     <div className="main-page-wrapper">
-      {/* Header qismi */}
+      {/* Sticky Header */}
       <header className="site-header">
         <button
           type="button"
           className={`menu-btn ${isLeaving ? 'leaving' : ''}`}
           onClick={handleRestartClick}
-          data-aos="fade-up"
-          data-aos-delay="100"
         >
           <span className="menu-btn-circle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 18L9 12L15 6" />
             </svg>
           </span>
-          <span className="menu-btn-text">Ortga</span>
+          <span className="menu-btn-text">
+            {UI_TEXT.backBtn[currentLanguage] || UI_TEXT.backBtn.ru}
+          </span>
         </button>
 
-        <div className="header-logo" data-aos="fade-up" data-aos-delay="150">
+        <div className="header-logo">
           <img src={logoImg} alt="Shirin Tabaka" />
         </div>
 
@@ -152,39 +196,44 @@ export default function MainSite({
             sessionStorage.setItem("returnPage", "main");
             onChangeLanguage && onChangeLanguage();
           }}
-          data-aos="fade-up"
-          data-aos-delay="200"
         >
           <img src={FLAGS[currentLanguage] || FLAGS.ru} alt={langUpper} className="lang-flag" />
           <span>{langUpper}</span>
         </button>
       </header>
 
-      {/* 3 TALIK BANNER SLIDER QISMI */}
+      {/* 3D SILILQ SURILADIGAN BANNER CAROUSEL */}
       <section className="banner-slider-container" data-aos="fade-up">
-        <div className="banner-track">
-          {/* Chapdagi kichik rasm */}
-          <div className="banner-item side-banner" onClick={handlePrevBanner}>
-            <img src={STATIC_BANNERS[prevIndex].image} alt="Prev Banner" />
-          </div>
-
-          {/* O'rtadagi asosiy yirik rasm */}
-          <div className="banner-item active-banner" key={currentBannerIndex}>
-            <img src={STATIC_BANNERS[currentBannerIndex].image} alt="Active Banner" />
-          </div>
-
-          {/* O'ngdagi kichik rasm */}
-          <div className="banner-item side-banner" onClick={handleNextBanner}>
-            <img src={STATIC_BANNERS[nextIndex].image} alt="Next Banner" />
+        <div 
+          className="carousel-viewport"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="carousel-track">
+            {STATIC_BANNERS.map((banner, index) => {
+              const slideClass = getSlideClass(index);
+              return (
+                <div 
+                  key={banner.id} 
+                  className={`carousel-slide ${slideClass}`}
+                  onClick={() => {
+                    if (slideClass.includes('prev')) handlePrevBanner();
+                    if (slideClass.includes('next')) handleNextBanner();
+                  }}
+                >
+                  <img src={banner.image} alt={banner.title} />
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Chap strelka */}
-        <button className="banner-arrow banner-prev" onClick={handlePrevBanner}>
+        {/* Strelkalar */}
+        <button type="button" className="banner-arrow banner-prev" onClick={handlePrevBanner}>
           &#10094;
         </button>
-        {/* O'ng strelka */}
-        <button className="banner-arrow banner-next" onClick={handleNextBanner}>
+        <button type="button" className="banner-arrow banner-next" onClick={handleNextBanner}>
           &#10095;
         </button>
 
@@ -203,9 +252,13 @@ export default function MainSite({
       {/* Kategoriyalar */}
       <main className="categories-container">
         {loading ? (
-          <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '50px' }}>Yuklanmoqda...</p>
+          <p className="loading-text">
+            {UI_TEXT.loading[currentLanguage] || UI_TEXT.loading.ru}
+          </p>
         ) : categories.length === 0 ? (
-          <p style={{ textAlign: 'center', color: '#fff', fontSize: '18px', marginTop: '50px' }}>Hozircha kategoriyalar yo'q</p>
+          <p className="loading-text">
+            {UI_TEXT.noCategories[currentLanguage] || UI_TEXT.noCategories.ru}
+          </p>
         ) : (
           <div className="categories-grid">
             {categories.map((category, index) => {

@@ -7,21 +7,14 @@ import CategoryDetail from './components/CategoryDetail';
 import LanguageSelect from './features/language-select/LanguageSelect';
 
 export default function App() {
-  // Tilni localStorage'dan o'qish (default: 'uz')
   const [currentLanguage, setCurrentLanguage] = useState(
     () => localStorage.getItem('app_language') || 'uz'
   );
 
-  // Tanlangan kategoriya
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  // Qaysi sahifa ochiq: 'main' yoki 'category'
   const [currentPage, setCurrentPage] = useState('main');
-
-  // Sayt ilk bor ochilganda til tanlash sahifasi chiqishi uchun true qilib qo'yildi
   const [showLanguagePage, setShowLanguagePage] = useState(true);
 
-  // AOS (animatsiya kutubxonasi) ni ishga tushirish
   useEffect(() => {
     AOS.init({
       duration: 700,
@@ -31,80 +24,64 @@ export default function App() {
     });
   }, []);
 
-  // Sahifa almashganda AOS ni yangilash
   useEffect(() => {
     AOS.refresh();
   }, [showLanguagePage, selectedCategory]);
 
-  // Burger menu bosilganda
   const handleMenuToggle = () => {
     console.log('Burger menyu bosildi');
   };
 
-  // Saytni boshidan boshlash
   const handleRestart = () => {
     setSelectedCategory(null);
     setCurrentPage('main');
     setShowLanguagePage(true);
 
-    sessionStorage.removeItem('mainScrollPosition');
-    sessionStorage.removeItem('categoryScrollPosition');
-    sessionStorage.removeItem('returnPage');
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant'
-    });
+    // Qayta boshlashda ham hozirgi skrol pozitsiyasini saqlab qolamiz
+    sessionStorage.setItem('mainScrollPosition', window.scrollY);
+    sessionStorage.setItem('returnPage', 'main');
   };
 
-  // Til tugmasi bosilganda ochiladigan funksiya
+  // Til sahifasiga o'tishda skrolni xotiraga yozish
   const openLanguagePage = () => {
-    if (selectedCategory) {
-      setCurrentPage('category');
+    if (selectedCategory && currentPage === 'category') {
+      sessionStorage.setItem('categoryScrollPosition', window.scrollY);
       sessionStorage.setItem('returnPage', 'category');
     } else {
-      setCurrentPage('main');
+      sessionStorage.setItem('mainScrollPosition', window.scrollY);
       sessionStorage.setItem('returnPage', 'main');
     }
     setShowLanguagePage(true);
   };
 
-  // LanguageSelect dan til tanlab qaytganda
+  // Til tanlangandan keyin qaytish va skrolni joyiga tiklash logikasi
   const handleLanguageSelect = (lang) => {
-    // 1. LocalStorage ga saqlaymiz
     localStorage.setItem('app_language', lang);
-    
-    // 2. State'ni yangilaymiz (katalog nomlari darhol o'zgarishi uchun)
     setCurrentLanguage(lang);
-    
-    // 3. Til tanlash sahifasini yopamiz (shunda asosiy katalog sahifasiga o'tadi)
     setShowLanguagePage(false);
 
-    // Oldingi qolgan joyiga (scroll pozitsiyasiga) qaytarish
-    setTimeout(() => {
-      const returnPage = sessionStorage.getItem('returnPage');
-      const key = returnPage === 'category' ? 'categoryScrollPosition' : 'mainScrollPosition';
+    // Bosh sahifa chizilishi va DOM tayyor bo'lishi bilan skrolni tiklaymiz
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const returnPage = sessionStorage.getItem('returnPage');
+        const key = returnPage === 'category' ? 'categoryScrollPosition' : 'mainScrollPosition';
+        const savedScroll = Number(sessionStorage.getItem(key) || 0);
 
-      const scroll = Number(sessionStorage.getItem(key) || 0);
-
-      window.scrollTo({
-        top: scroll,
-        behavior: 'instant'
-      });
-    }, 0);
+        window.scrollTo({
+          top: savedScroll,
+          behavior: 'instant'
+        });
+      }, 150); // Categoriyalar yuklanib/chizilib olishi uchun yetarli vaqt
+    });
   };
 
   return (
     <div className="app-main-container">
-
       {showLanguagePage ? (
-        // 1. Til tanlash sahifasi
         <LanguageSelect
           onSelectLanguage={handleLanguageSelect}
         />
-
       ) : currentPage === 'category' && selectedCategory ? (
-        // 2. Tanlangan kategoriya ichidagi mahsulotlar sahifasi
         <CategoryDetail
           category={selectedCategory}
           currentLang={currentLanguage}
@@ -114,9 +91,7 @@ export default function App() {
           }}
           onChangeLang={openLanguagePage}
         />
-
       ) : (
-        // 3. Asosiy kategoriyalar sahifasi
         <MainSite
           currentLanguage={currentLanguage}
           onMenuToggle={handleMenuToggle}
@@ -128,7 +103,6 @@ export default function App() {
           }}
         />
       )}
-
     </div>
   );
 }

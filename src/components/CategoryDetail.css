@@ -1,12 +1,12 @@
 /* ========================================================= */
-/* 1. SAHIFA KONTEYNERI VA ASOSIY DIZAYN */
+/* 1. SAHIFA KONTEYNERI VA OQ GRADIENT DIZAYN */
 /* ========================================================= */
 .category-detail-wrapper {
   width: 100%;
   max-width: 550px;
   min-height: 100vh;
   margin: 0 auto;
-  background-color: #F6F4F1;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F5F8 50%, #E9ECEF 100%);
   display: flex;
   flex-direction: column;
 }
@@ -16,33 +16,134 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background-color: #F6F4F1;
-  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 64px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.back-btn {
+/* ========================================================= */
+/* MAINSITE BILAN BIR XIL ANIMATSIYALI "ORTGA" TUGMASI */
+/* ========================================================= */
+.menu-btn {
+  position: relative;
+  width: 132px;
+  height: 52px;
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  background: #ffffff;
   display: flex;
   align-items: center;
-  gap: 4px;
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  font-weight: 700;
-  color: #222222;
+  justify-content: flex-start;
+  padding: 6px;
   cursor: pointer;
-  padding: 4px 0;
+  overflow: hidden;
+  flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(92, 21, 28, 0.08);
+  transition: transform .2s ease, box-shadow .25s ease;
 }
 
-.back-icon {
-  width: 18px;
-  height: 18px;
+.menu-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(92, 21, 28, .12), 0 4px 10px rgba(0, 0, 0, .05);
 }
 
+.menu-btn:active {
+  transform: scale(.97);
+}
+
+.menu-btn-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #5C151C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  z-index: 3;
+  transition: all .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.menu-btn-circle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform .35s;
+}
+
+.menu-btn-text {
+  margin-left: 16px;
+  color: #5C151C;
+  font-size: 15px;
+  font-weight: 700;
+  position: relative;
+  z-index: 3;
+  transition: color .35s, transform .35s;
+}
+
+/* BUTTON BOSILGANDAGI ANIMATSIYA */
+.menu-btn::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5C151C 0%, #7B1F28 100%);
+  z-index: 1;
+  transition: width .45s cubic-bezier(.22, 1, .36, 1), left .45s cubic-bezier(.22, 1, .36, 1), opacity .3s;
+}
+
+.menu-btn.leaving::before {
+  width: calc(100% - 12px);
+  left: 6px;
+}
+
+.menu-btn.leaving {
+  box-shadow: 0 12px 30px rgba(92, 21, 28, .25), 0 4px 12px rgba(0, 0, 0, .08);
+}
+
+.menu-btn.leaving .menu-btn-circle {
+  background: transparent;
+  width: 120px;
+  border-radius: 999px;
+  justify-content: flex-start;
+  padding-left: 14px;
+}
+
+.menu-btn.leaving .menu-btn-circle svg {
+  color: #ffffff;
+  transform: translateX(-2px);
+}
+
+.menu-btn.leaving .menu-btn-text {
+  color: #ffffff;
+  transform: translateX(-42px);
+}
+
+.menu-btn:hover .menu-btn-circle {
+  transform: scale(1.04);
+}
+
+.menu-btn:hover .menu-btn-text {
+  letter-spacing: .3px;
+}
+
+.menu-btn:focus-visible {
+  outline: 2px solid rgba(92, 21, 28, .35);
+  outline-offset: 3px;
+}
+
+/* Logo & Lang Switcher */
 .category-header-logo {
   position: absolute;
   left: 50%;
@@ -54,7 +155,7 @@
 }
 
 .category-header-logo img {
-  height: 60px;
+  height: 55px;
   width: auto;
   object-fit: contain;
 }
@@ -68,13 +169,13 @@
   min-width: 68px;
   height: 44px;
   background-color: #FFFFFF;
-  border: 1px solid #ddd;
+  border: 1px solid #E2E8F0;
   border-radius: 10px;
   font-weight: 700;
   font-size: 13px;
-  color: #222;
+  color: #2D3748;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: transform 0.15s ease, background-color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
@@ -107,6 +208,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .banner-info {
@@ -181,8 +283,8 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: transform 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   cursor: pointer;
 }
 
@@ -236,9 +338,8 @@
 }
 
 /* ========================================================= */
-/* 4. MODAL OYNA (100% TO'G'RILANGAN VA ISHONCHLI) */
+/* 4. MODAL OYNA */
 /* ========================================================= */
-
 .product-modal-overlay {
   position: fixed !important;
   top: 0 !important;
@@ -350,8 +451,23 @@
 }
 
 /* ========================================================= */
-/* 5. ANIMATSIYALAR VA MEDIA QISMLAR */
+/* 5. ANIMATSIYALAR VA RESPONSIVE */
 /* ========================================================= */
+.fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes scaleUpModal {
   from {
     opacity: 0;

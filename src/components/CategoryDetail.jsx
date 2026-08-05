@@ -12,9 +12,9 @@ const FLAGS = { uz: uzFlag, ru: ruFlag, en: enFlag };
 
 const UI_TEXT = {
   backBtn: {
-    uz: 'Barcha kategoriyalar',
-    ru: 'Все категории',
-    en: 'All categories'
+    uz: 'Ortga',
+    ru: 'Назад',
+    en: 'Back'
   },
   itemsCount: {
     uz: 'ta pozitsiya',
@@ -42,8 +42,8 @@ export default function CategoryDetail({
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isLeaving, setIsLeaving] = useState(false);
 
-  // Mahsulot bosilganda sahifani sakratib yubormasdan to'g'ri qotirish
   useEffect(() => {
     if (selectedProduct) {
       document.body.style.overflow = 'hidden';
@@ -87,7 +87,6 @@ export default function CategoryDetail({
           console.error('Mahsulotlarni olishda xatolik:', error.message);
         } else if (allProducts) {
           const filtered = allProducts.filter(item => {
-            // Nofaol mahsulotlarni yashirish (status faol bo'lishi shart)
             const prodStatus = item.status || 'active';
             if (prodStatus !== 'active') return false;
 
@@ -108,6 +107,17 @@ export default function CategoryDetail({
 
     fetchProducts();
   }, [category]);
+
+  const handleBackClick = () => {
+    if (isLeaving) return;
+    setIsLeaving(true);
+    setTimeout(() => {
+      onBack && onBack();
+      setTimeout(() => {
+        setIsLeaving(false);
+      }, 50);
+    }, 450);
+  };
 
   const getImageUrl = (imagePath) => {
     if (!imagePath) return '';
@@ -185,11 +195,18 @@ export default function CategoryDetail({
   return (
     <div className="category-detail-wrapper fade-in">
       <header className="category-header">
-        <button className="back-btn" onClick={onBack}>
-          <svg className="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-          <span>{UI_TEXT.backBtn[currentLang]}</span>
+        {/* MainSite.js BILAN AYNAN BIR XIL ANIMATSIYALI "ORTGA" TUGMASI */}
+        <button
+          type="button"
+          className={`menu-btn ${isLeaving ? 'leaving' : ''}`}
+          onClick={handleBackClick}
+        >
+          <span className="menu-btn-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18L9 12L15 6" />
+            </svg>
+          </span>
+          <span className="menu-btn-text">{UI_TEXT.backBtn[currentLang]}</span>
         </button>
 
         <div className="category-header-logo">
