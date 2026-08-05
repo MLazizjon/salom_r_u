@@ -68,11 +68,11 @@
   min-width: 68px;
   height: 44px;
   background-color: #FFFFFF;
-  border: 1px solid var(--color-border, #ddd);
+  border: 1px solid #ddd;
   border-radius: 10px;
   font-weight: 700;
   font-size: 13px;
-  color: var(--color-text-primary, #222);
+  color: #222;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
   transition: transform 0.15s ease, background-color 0.2s ease;
@@ -236,35 +236,24 @@
 }
 
 /* ========================================================= */
-/* 4. MODAL OYNA VA SAHIFA SKROLINI BLOKLASH */
-/* ========================================================= */
-
-body.modal-open {
-  overflow: hidden !important;
-  height: 100vh !important;
-}
-
-/* ========================================================= */
-/* MODALNI EKRanning QOQ O'RTASIGA QO'YISH UCHUN TO'G'RILANGAN CSS */
+/* 4. MODAL OYNA (100% TO'G'RILANGAN VA ISHONCHLI) */
 /* ========================================================= */
 
 .product-modal-overlay {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
-  width: 100% !important;
+  width: 100vw !important;
   height: 100vh !important;
-  background-color: rgba(0, 0, 0, 0.6) !important;
+  background-color: rgba(0, 0, 0, 0.65) !important;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  z-index: 999999 !important;
+  z-index: 999999999 !important;
   display: flex !important;
-  align-items: center !important;   /* Vertikal bo'yicha qoq o'rtaga qo'yadi */
-  justify-content: center !important; /* Grizontal bo'yicha qoq o'rtaga qo'yadi */
-  margin: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 16px !important;
   box-sizing: border-box !important;
-  transform: none !important;
 }
 
 .product-modal-content {
@@ -275,10 +264,9 @@ body.modal-open {
   overflow-y: auto !important;
   background-color: #FFFFFF !important;
   border-radius: 24px !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
   display: flex !important;
   flex-direction: column !important;
-  margin: auto !important; /* Har qanday holatda ham o'rtada turishini kafolatlaydi */
   animation: scaleUpModal 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -364,15 +352,6 @@ body.modal-open {
 /* ========================================================= */
 /* 5. ANIMATSIYALAR VA MEDIA QISMLAR */
 /* ========================================================= */
-@keyframes fadeInModal {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes scaleUpModal {
   from {
     opacity: 0;

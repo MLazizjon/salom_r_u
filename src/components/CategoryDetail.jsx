@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import './CategoryDetail.css';
 import logoImg from '../assets/images/logo.png';
 import { supabase } from '../supabase/supabesa';
@@ -42,15 +43,15 @@ export default function CategoryDetail({
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Modal ochiq paytda sahifa skrol qilishini bloklash
+  // Mahsulot bosilganda sahifani sakratib yubormasdan to'g'ri qotirish
   useEffect(() => {
     if (selectedProduct) {
-      document.body.classList.add('modal-open');
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.classList.remove('modal-open');
+      document.body.style.overflow = 'auto';
     }
     return () => {
-      document.body.classList.remove('modal-open');
+      document.body.style.overflow = 'auto';
     };
   }, [selectedProduct]);
 
@@ -144,6 +145,42 @@ export default function CategoryDetail({
     }
     return desc;
   };
+
+  // Modalni alohida komponent sifatida ajratdik, chunki uni portal orqali
+  // to'g'ridan-to'g'ri document.body ichiga chiqaramiz. Shunda u
+  // wrapper'dagi transform/scroll holatidan mustaqil bo'lib, har doim
+  // ekran markazida va to'liq enida chiqadi.
+  const modalContent = selectedProduct && (
+    <div className="product-modal-overlay" onClick={() => setSelectedProduct(null)}>
+      <div className="product-modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close-btn" onClick={() => setSelectedProduct(null)}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div className="modal-img-wrapper">
+          <img 
+            src={getImageUrl(selectedProduct.image_url || selectedProduct.image)} 
+            alt={getProductName(selectedProduct)} 
+            className="modal-img"
+          />
+        </div>
+
+        <div className="modal-info-wrapper">
+          <h2 className="modal-product-name">{getProductName(selectedProduct)}</h2>
+          <p className="modal-product-desc">{getProductDescription(selectedProduct)}</p>
+          
+          <div className="modal-footer-row">
+            <div className="modal-product-price">
+              {selectedProduct.price} <span>{UI_TEXT.currency[currentLang]}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="category-detail-wrapper fade-in">
@@ -248,38 +285,8 @@ export default function CategoryDetail({
         )}
       </main>
 
-      {/* MAHSULOT KATTA MODAL OYNASI */}
-      {selectedProduct && (
-        <div className="product-modal-overlay" onClick={() => setSelectedProduct(null)}>
-          <div className="product-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setSelectedProduct(null)}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-
-            <div className="modal-img-wrapper">
-              <img 
-                src={getImageUrl(selectedProduct.image_url || selectedProduct.image)} 
-                alt={getProductName(selectedProduct)} 
-                className="modal-img"
-              />
-            </div>
-
-            <div className="modal-info-wrapper">
-              <h2 className="modal-product-name">{getProductName(selectedProduct)}</h2>
-              <p className="modal-product-desc">{getProductDescription(selectedProduct)}</p>
-              
-              <div className="modal-footer-row">
-                <div className="modal-product-price">
-                  {selectedProduct.price} <span>{UI_TEXT.currency[currentLang]}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* MAHSULOT KATTA MODAL OYNASI — endi portal orqali body'ga chiqadi */}
+      {selectedProduct && createPortal(modalContent, document.body)}
     </div>
   );
 }
