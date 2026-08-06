@@ -751,7 +751,50 @@ const products = {
       image: mainCourseImg19,
     },
   ],
-
+"hot-appetizers": [
+  {
+    id: "hotSnack1",
+    name: { uz: "Barak Qovurilgan 1ta", ru: "Барак жаренный шт", en: "Fried Barak 1piece" },
+    price: "14000",
+    image: hotSnack1,
+  },
+  {
+    id: "hotSnack2",
+    name: { uz: "Bichak 1ta", ru: "Бичак, шт", en: "Bichak 1piece" },
+    price: "8000",
+    image: hotSnack2,
+  },
+  {
+    id: "hotSnack3",
+    name: { uz: "Somsa (buyurtma) 1ta", ru: "Самса(заказ) шт", en: "Samsa (order) 1piece" },
+    price: "9500",
+    image: hotSnack3,
+  },
+  {
+    id: "hotSnack4",
+    name: { uz: "Til Kavkazcha", ru: "Язык по кавказски", en: "Caucasian style tongue" },
+    price: "68500",
+    image: hotSnack4,
+  },
+  {
+    id: "hotSnack5",
+    name: { uz: "Lavash ichimlik bilan / masalliqli", ru: "Лаваш с Начинкой", en: "Stuffed Lavash" },
+    price: "52000",
+    image: hotSnack5,
+  },
+  {
+    id: "hotSnack6",
+    name: { uz: "Blinchik 1ta", ru: "Блинчик, шт", en: "Pancake 1piece" },
+    price: "16000",
+    image: hotSnack6,
+  },
+  {
+    id: "hotSnack7",
+    name: { uz: "Qovurilgan baliq (G'ijduvoncha)", ru: "Жареная рыба (по гиждувански)", en: "Fried fish (Gijduvan style)" },
+    price: "102000",
+    image: hotSnack7,
+  },
+],
   // 9. SOʻUQ SHOʻRBALAR
   "cold-soups": [
     {
