@@ -1,11 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './MainSite.css';
 
-// Rasmlar va bayroqlar
+// Logo rasmi
 import logoImg from '../assets/images/logo.png';
-import uzFlag from '../assets/images/flags/uz.png';
-import ruFlag from '../assets/images/flags/ru.png';
-import enFlag from '../assets/images/flags/en.png';
 
 // Banner rasmlari
 import banner1 from '../assets/products/main-courses/mainCourse7.jpg';
@@ -62,12 +59,6 @@ export const CATEGORIES = [
   { id: 'mojito', name: { uz: 'MAXITO', ru: 'МОХИТО', en: 'MOJITO' }, image: mojitoImg },
   { id: 'desserts', name: { uz: 'DESERTLAR', ru: 'ДЕСЕРТЫ', en: 'DESSERTS' }, image: dessertsImg }
 ];
-
-const FLAGS = {
-  uz: uzFlag,
-  ru: ruFlag,
-  en: enFlag
-};
 
 const UI_TEXT = {
   backBtn: { uz: 'Ortga', ru: 'Назад', en: 'Back' },
@@ -210,7 +201,6 @@ export default function MainSite({
             onChangeLanguage && onChangeLanguage();
           }}
         >
-          <img src={FLAGS[currentLanguage] || FLAGS.ru} alt={langUpper} className="lang-flag" />
           <span>{langUpper}</span>
         </button>
       </header>

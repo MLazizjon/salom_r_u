@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import './LanguageSelect.css';
 
 import logoImg from '../../assets/images/logo.png';
-import uzFlag from '../../assets/images/flags/uz.png';
-import ruFlag from '../../assets/images/flags/ru.png';
-import enFlag from '../../assets/images/flags/en.png';
 
 const LANGUAGES = [
-  { code: 'uz', name: "O'zbek", flag: uzFlag },
-  { code: 'ru', name: 'Русский', flag: ruFlag },
-  { code: 'en', name: 'English', flag: enFlag },
+  { code: 'uz', name: "O'zbek" },
+  { code: 'ru', name: 'Русский' },
+  { code: 'en', name: 'English' },
 ];
 
 export const LanguageSelect = ({ onSelectLanguage }) => {
@@ -19,7 +16,6 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
 
   const handleSelect = (code) => {
     setSelectedLang(code);
-
     localStorage.setItem('app_language', code);
 
     if (onSelectLanguage) {
@@ -29,7 +25,6 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
 
   return (
     <div className="language-page">
-
       <div className="mobile-container">
 
         {/* Background */}
@@ -37,7 +32,6 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
 
         {/* Header */}
         <div className="header-section">
-
           <img
             src={logoImg}
             alt="Shirin Tabaka"
@@ -54,7 +48,6 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
               Tilni tanlang
             </p>
           </div>
-
         </div>
 
         {/* Languages */}
@@ -71,30 +64,10 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
               data-aos-delay={100 + index * 100}
             >
               <div className="lang-button-left">
-                <img
-                  src={lang.flag}
-                  alt={lang.name}
-                  className="flag-icon"
-                />
-
                 <span className="lang-text">
                   {lang.name}
                 </span>
               </div>
-
-              <svg
-                className="arrow-icon"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
             </button>
           ))}
         </div>
@@ -128,7 +101,6 @@ export const LanguageSelect = ({ onSelectLanguage }) => {
           />
         </svg>
       </div>
-
     </div>
   );
 };
