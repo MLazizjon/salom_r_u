@@ -4,9 +4,9 @@ import './CategoryDetail.css';
 
 // Logo va Bayroqlar importi
 import logoImg from '../assets/images/logo.png';
-import uzFlag from '../assets/images/flags/uz.png';
-import ruFlag from '../assets/images/flags/ru.png';
-import enFlag from '../assets/images/flags/en.png';
+// import uzFlag from '../assets/images/flags/uz.png';
+// import ruFlag from '../assets/images/flags/ru.png';
+// import enFlag from '../assets/images/flags/en.png';
 
 // --- RASMLAR IMPORTI ---
 import breadImg1 from "../assets/products/bread/bread1.jpg";
@@ -1205,7 +1205,7 @@ const products = {
   ],
 };
 
-const FLAGS = { uz: uzFlag, ru: ruFlag, en: enFlag };
+// const FLAGS = { uz: uzFlag, ru: ruFlag, en: enFlag };
 
 const UI_TEXT = {
   backBtn: { uz: 'Ortga', ru: 'Назад', en: 'Back' },
@@ -1337,7 +1337,7 @@ export default function CategoryDetail({
               if (onChangeLang) onChangeLang();
             }}
           >
-            <img src={FLAGS[currentLang]} alt={currentLang} className="lang-flag-mini" />
+            {/* <img src={FLAGS[currentLang]} alt={currentLang} className="lang-flag-mini" /> */}
             <span className="lang-code">{currentLang.toUpperCase()}</span>
             <svg className="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="6 9 12 15 18 9"></polyline>
