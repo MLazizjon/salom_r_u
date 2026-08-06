@@ -11,9 +11,9 @@ import enFlag from '../assets/images/flags/en.png';
 // --- RASMLAR IMPORTI ---
 import breadImg1 from "../assets/products/bread/bread1.jpg";
 import breadImg2 from "../assets/products/bread/bread2.jpg";
-import breadImg3 from "../assets/products/bread/bread3.jpg";
-import breadImg4 from "../assets/products/bread/bread4.jpg";
-import breadImg6 from "../assets/products/bread/bread6.jpg";
+import breadImg3 from "../assets/products/bread/image1.png";
+import breadImg4 from "../assets/products/bread/image2.png";
+import breadImg6 from "../assets/products/bread/image3.png";
 
 import saladImg1 from "../assets/products/salads/salad1.jpg";
 import saladImg2 from "../assets/products/salads/salad2.jpg";
