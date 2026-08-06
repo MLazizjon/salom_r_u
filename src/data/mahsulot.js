@@ -195,7 +195,7 @@ import mojitoImg2 from "../assets/products/mojito/mojito2.jpg";
 // import mojitoImg3 from "../assets/products/mojito/mojito3.jpg";
 import mojitoImg4 from "../assets/products/mojito/mojito4.jpg";
 import mojitoImg5 from "../assets/products/mojito/mojito5.jpg";
-// import mojitoImg6 from "../assets/products/mojito/mojito6.jpg";
+import mojitoImg6 from "../assets/products/mojito/mojito6.jpg";
 import mojitoImg7 from "../assets/products/mojito/mojito7.jpg";
 // import mojitoImg8 from "../assets/products/mojito/mojito8.jpg";
 
