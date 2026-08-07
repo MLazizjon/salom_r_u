@@ -34,7 +34,8 @@ import saladImg26 from "../assets/products/salads/image26.png";
 import saladImg27 from "../assets/products/salads/image27.png";
 import saladImg28 from "../assets/products/salads/image28.png";
 import saladImg29 from "../assets/products/salads/image29.png";
-// import saladImg30 from "../assets/products/salads/image30.png";
+import saladImg30 from "../assets/products/salads/salad20.jpg";
+import saladImg41 from "../assets/products/salads/salad21.jpg";
 // import saladImg22 from "../assets/products/salads/";
 
 import vegetableSaladImg1 from "../assets/products/vegetable-salads/vegetableSalad1.jpg";
@@ -380,13 +381,13 @@ export const products = {
       id: "salad21",
       name: { uz: "Majnuntol", ru: "Мажнунтол", en: "Majnuntol" },
       price: "48500",
-      image: saladImg20, // Majnuntol uchun rasm
+      image: saladImg30, // Majnuntol uchun rasm
     },
     {
       id: "salad22",
       name: { uz: "Rukola", ru: "Рукола", en: "Rukola" },
       price: "59500",
-      image: saladImg21, // Rukola uchun rasm
+      image: saladImg41, // Rukola uchun rasm
     },
   ],
 
