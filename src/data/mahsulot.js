@@ -10,20 +10,20 @@ import saladImg2 from "../assets/products/salads/salad2.jpg";
 // import saladImg3 from "../assets/products/salads/salad3.jpg";
 import saladImg4 from "../assets/products/salads/salad4.jpg";
 import saladImg5 from "../assets/products/salads/salad5.jpg";
-// import saladImg6 from "../assets/products/salads/salad6.jpg";
+import saladImg6 from "../assets/products/salads/salad6.jpg";
 // import saladImg7 from "../assets/products/salads/salad7.jpg";
 // import saladImg8 from "../assets/products/salads/salad8.jpg";
 // import saladImg9 from "../assets/products/salads/salad9.jpg";
 // import saladImg10 from "../assets/products/salads/salad10.jpg";
 // import saladImg11 from "../assets/products/salads/salad11.jpg";
 // import saladImg12 from "../assets/products/salads/salad12.jpg";
-// import saladImg13 from "../assets/products/salads/salad13.jpg";
-// import saladImg14 from "../assets/products/salads/salad14.jpg";
-// import saladImg15 from "../assets/products/salads/salad15.jpg";
-// import saladImg16 from "../assets/products/salads/salad16.jpg";
-// import saladImg17 from "../assets/products/salads/salad17.jpg";
-// import saladImg18 from "../assets/products/salads/salad18.jpg";
-// import saladImg19 from "../assets/products/salads/salad19.jpg";
+import saladImg13 from "../assets/products/salads/salad13.jpg";
+import saladImg14 from "../assets/products/salads/salad14.jpg";
+import saladImg15 from "../assets/products/salads/salad15.jpg";
+import saladImg16 from "../assets/products/salads/salad16.jpg";
+import saladImg17 from "../assets/products/salads/salad17.jpg";
+import saladImg18 from "../assets/products/salads/salad18.jpg";
+import saladImg19 from "../assets/products/salads/salad19.jpg";
 import saladImg20 from "../assets/products/salads/image10.png";
 import saladImg21 from "../assets/products/salads/image21.png";
 // import saladImg22 from "../assets/products/salads/image22.png";
@@ -34,8 +34,8 @@ import saladImg26 from "../assets/products/salads/image26.png";
 import saladImg27 from "../assets/products/salads/image27.png";
 import saladImg28 from "../assets/products/salads/image28.png";
 import saladImg29 from "../assets/products/salads/image29.png";
-import saladImg30 from "../assets/products/salads/image30.png";
-// import saladImg22 from "../assets/products/salads/salad32.jpg";
+// import saladImg30 from "../assets/products/salads/image30.png";
+// import saladImg22 from "../assets/products/salads/";
 
 import vegetableSaladImg1 from "../assets/products/vegetable-salads/vegetableSalad1.jpg";
 import vegetableSaladImg2 from "../assets/products/vegetable-salads/vegetableSalad2.jpg";
@@ -79,6 +79,7 @@ import coldSnackImg15 from "../assets/products/cold-snacks/coldSnack15.jpg";
 
 import meatSnackImg1 from "../assets/products/meat-snacks/meatSnack1.jpg";
 import meatSnackImg2 from "../assets/products/meat-snacks/meatSnack2.jpg";
+import meatSnackImg3 from "../assets/products/meat-snacks/meatSnack3.jpg";
 
 import hotSoupImg1 from "../assets/products/hot-soups/hotSoup1.jpg";
 import hotSoupImg2 from "../assets/products/hot-soups/hotSoup2.jpg";
@@ -144,7 +145,7 @@ import shashlikImg9 from "../assets/products/shashlik/shashlik9.png";
 
 import drinkImg1 from "../assets/products/drinks/drink1.jpg";
 import drinkImg2 from "../assets/products/drinks/drink2.jpg";
-import drinkImg3 from "../assets/products/drinks/drink3.jpg";
+// import drinkImg3 from "../assets/products/drinks/drink3.jpg";
 import drinkImg4 from "../assets/products/drinks/drink4.jpg";
 import drinkImg5 from "../assets/products/drinks/drink5.jpg";
 import drinkImg6 from "../assets/products/drinks/drink6.jpg";
@@ -163,21 +164,25 @@ import beerImg2 from "../assets/products/beer/beer2.jpg";
 import vodkaImg1 from "../assets/products/vodka/vodka1.jpg";
 import vodkaImg2 from "../assets/products/vodka/vodka2.jpg";
 import vodkaImg3 from "../assets/products/vodka/vodka3.jpg";
-import vodkaImg4 from "../assets/products/vodka/vodka4.jpg";
-import vodkaImg5 from "../assets/products/vodka/vodka5.jpg";
+// import vodkaImg4 from "../assets/products/vodka/vodka4.jpg";
+// import vodkaImg5 from "../assets/products/vodka/vodka5.jpg";
 // import vodkaImg6 from "../assets/products/vodka/vodka6.jpg";
-import vodkaImg7 from "../assets/products/vodka/vodka7.jpg";
-// import vodkaImg8 from "../assets/products/vodka/vodka8.jpg";
+// import vodkaImg7 from "../assets/products/vodka/vodka7.jpg";
+import vodkaImg8 from "../assets/products/vodka/vodka8.jpg";
 // import vodkaImg9 from "../assets/products/vodka/vodka9.jpg";
 // import vodkaImg10 from "../assets/products/vodka/vodka10.jpg";
 // import vodkaImg11 from "../assets/products/vodka/vodka11.jpg";
 // import vodkaImg12 from "../assets/products/vodka/vodka12.jpg";
-// import vodkaImg13 from "../assets/products/vodka/vodka13.jpg";
-// import vodkaImg14 from "../assets/products/vodka/vodka14.jpg";
+import vodkaImg13 from "../assets/products/vodka/vodka13.jpg";
+import vodkaImg14 from "../assets/products/vodka/vodka14.jpg";
 import vodkaImg15 from "../assets/products/vodka/vodka15.jpg";
 // import vodkaImg16 from "../assets/products/vodka/vodka16.jpg";
 // import vodkaImg17 from "../assets/products/vodka/vodka17.jpg";
 // import vodkaImg18 from "../assets/products/vodka/vodka18.jpg";
+import vodkaImg31 from "../assets/products/vodka/vodka31.png";
+import vodkaImg32 from "../assets/products/vodka/image32.png";
+import vodkaImg33 from "../assets/products/vodka/image33.png";
+import vodkaImg34 from "../assets/products/vodka/image34.png";
 
 import wineImg1 from "../assets/products/wine/wine1.jpg";
 import wineImg2 from "../assets/products/wine/wine2.jpg";
@@ -185,15 +190,15 @@ import wineImg3 from "../assets/products/wine/wine3.jpg";
 import wineImg4 from "../assets/products/wine/wine4.jpg";
 
 import cognacImg1 from "../assets/products/cognac/cognac1.jpg";
-import cognacImg2 from "../assets/products/cognac/cognac2.jpg";
+import cognacImg2 from "../assets/products/cognac/cognac6.png";
 import cognacImg3 from "../assets/products/cognac/cognac3.jpg";
 import cognacImg4 from "../assets/products/cognac/cognac4.jpg";
 import cognacImg5 from "../assets/products/cognac/cognac5.jpg";
 
-import mojitoImg1 from "../assets/products/mojito/mojito1.jpg";
+// import mojitoImg1 from "../assets/products/mojito/mojito1.jpg";
 import mojitoImg2 from "../assets/products/mojito/mojito2.jpg";
 // import mojitoImg3 from "../assets/products/mojito/mojito3.jpg";
-import mojitoImg4 from "../assets/products/mojito/mojito4.jpg";
+// import mojitoImg4 from "../assets/products/mojito/mojito4.jpg";
 import mojitoImg5 from "../assets/products/mojito/mojito5.jpg";
 import mojitoImg6 from "../assets/products/mojito/mojito6.jpg";
 import mojitoImg7 from "../assets/products/mojito/mojito7.jpg";
@@ -201,9 +206,9 @@ import mojitoImg7 from "../assets/products/mojito/mojito7.jpg";
 
 import dessertImg1 from "../assets/products/desserts/dessert1.jpg";
 import dessertImg2 from "../assets/products/desserts/dessert2.jpg";
-import dessertImg3 from "../assets/products/desserts/dessert3.jpg";
-import dessertImg4 from "../assets/products/desserts/dessert4.jpg";
-import dessertImg5 from "../assets/products/desserts/dessert5.jpg";
+// import dessertImg3 from "../assets/products/desserts/dessert3.jpg";
+// import dessertImg4 from "../assets/products/desserts/dessert4.jpg";
+// import dessertImg5 from "../assets/products/desserts/dessert5.jpg";
 
 import Img from "../assets/products/image.png";
 
@@ -248,372 +253,374 @@ export const products = {
     },
   ],
 
+
   // 2. SALATLAR
- "salads": [
-  {
-    id: "salad1",
-    name: { uz: "Gnezdo", ru: "Гнездо", en: "Nest salad" },
-    price: "47500",
-    image: saladImg1,
-  },
-  {
-    id: "salad2",
-    name: { uz: "Dilband", ru: "Дилбанд", en: "Dilband salad" },
-    price: "51500",
-    image: saladImg2,
-  },
-  {
-    id: "salad3",
-    name: { uz: "Tsezar salati", ru: "Цезарь", en: "Caesar salad" },
-    price: "52500",
-    image: saladImg20,
-  },
-  {
-    id: "salad4",
-    name: { uz: "Go'shtli salat", ru: "Мясной", en: "Meat salad" },
-    price: "47500",
-    image: saladImg4,
-  },
-  {
-    id: "salad5",
-    name: { uz: "Izyuminka", ru: "Изюминка", en: "Izyuminka" },
-    price: "50500",
-    image: saladImg5,
-  },
-  {
-    id: "salad6",
-    name: { uz: "Shirin", ru: "Ширин", en: "Shirin" },
-    price: "49500",
-    image: saladImg21,
-  },
-  {
-    id: "salad7",
-    name: { uz: "Meksika", ru: "Мексика", en: "Mexico" },
-    price: "61500",
-    image: saladImg24,
-  },
-  {
-    id: "salad8",
-    name: { uz: "Saykal", ru: "Сайкал", en: "Saykal salad" },
-    price: "49500",
-    image: saladImg25,
-  },
-  {
-    id: "salad9",
-    name: { uz: "Yaponskiy salat", ru: "Японский", en: "Japanese salad" },
-    price: "49500",
-    image: saladImg26,
-  },
-  {
-    id: "salad10",
-    name: { uz: "Seul", ru: "Сеул", en: "Seoul salad" },
-    price: "47500",
-    image: saladImg27,
-  },
-  {
-    id: "salad11",
-    name: { uz: "Roust bif", ru: "Роуст биф", en: "Roast beef" },
-    price: "76500",
-    image: saladImg28,
-  },
-  {
-    id: "salad12",
-    name: { uz: "Erkaklar kaprizi", ru: "Мужской каприз", en: "Male caprice" },
-    price: "50500",
-    image: saladImg30,
-  },
-  {
-    id: "salad13",
-    name: { uz: "Olivye", ru: "Оливье", en: "Olivier salad" },
-    price: "47000",
-    image: saladImg29,
-  },
-  // {
-  //   id: "salad14",
-  //   name: { uz: "Shalun", ru: "Шалун", en: "Shalun salad" },
-  //   price: "47500",
-  //   image: saladImg14,
-  // },
-  // {
-  //   id: "salad15",
-  //   name: { uz: "Brokkoli salati", ru: "Салат из брокали", en: "Broccoli salad" },
-  //   price: "66500",
-  //   image: saladImg15,
-  // },
-  // {
-  //   id: "salad16",
-  //   name: { uz: "Francuzskiy", ru: "Французский", en: "French salad" },
-  //   price: "45000",
-  //   image: saladImg16,
-  // },
-  // {
-  //   id: "salad17",
-  //   name: { uz: "Issiq Shirin", ru: "Теплый Ширин", en: "Warm Shirin" },
-  //   price: "69500",
-  //   image: saladImg17,
-  // },
-  // {
-  //   id: "salad18",
-  //   name: { uz: "Qor parchasi", ru: "Снежинка", en: "Snowflake" },
-  //   price: "49500",
-  //   image: saladImg18,
-  // },
-  // {
-  //   id: "salad19",
-  //   name: { uz: "Kulgu", ru: "Улыбка", en: "Smile" },
-  //   price: "43500",
-  //   image: saladImg19,
-  // },
-  // {
-  //   id: "salad20",
-  //   name: { uz: "Bolgariya", ru: "Болгария", en: "Bulgaria" },
-  //   price: "47500",
-  //   image: saladImg14, // Bolgariya uchun rasm takror ishlatilgan
-  // },
-  // {
-  //   id: "salad21",
-  //   name: { uz: "Majnuntol", ru: "Мажнунтол", en: "Majnuntol" },
-  //   price: "48500",
-  //   image: saladImg15, // Majnuntol uchun rasm
-  // },
-  // {
-  //   id: "salad22",
-  //   name: { uz: "Rukola", ru: "Рукола", en: "Rukola" },
-  //   price: "59500",
-  //   image: saladImg16, // Rukola uchun rasm
-  // },
-],
+  "salads": [
+    {
+      id: "salad1",
+      name: { uz: "Gnezdo", ru: "Гнездо", en: "Nest salad" },
+      price: "47500",
+      image: saladImg1,
+    },
+    {
+      id: "salad2",
+      name: { uz: "Dilband", ru: "Дилбанд", en: "Dilband salad" },
+      price: "51500",
+      image: saladImg2,
+    },
+    {
+      id: "salad3",
+      name: { uz: "Tsezar salati", ru: "Цезарь", en: "Caesar salad" },
+      price: "52500",
+      image: saladImg20,
+    },
+    {
+      id: "salad4",
+      name: { uz: "Go'shtli salat", ru: "Мясной", en: "Meat salad" },
+      price: "47500",
+      image: saladImg4,
+    },
+    {
+      id: "salad5",
+      name: { uz: "Izyuminka", ru: "Изюминка", en: "Izyuminka" },
+      price: "50500",
+      image: saladImg5,
+    },
+    {
+      id: "salad6",
+      name: { uz: "Shirin", ru: "Ширин", en: "Shirin" },
+      price: "49500",
+      image: saladImg21,
+    },
+    {
+      id: "salad7",
+      name: { uz: "Meksika", ru: "Мексика", en: "Mexico" },
+      price: "61500",
+      image: saladImg24,
+    },
+    {
+      id: "salad8",
+      name: { uz: "Saykal", ru: "Сайкал", en: "Saykal salad" },
+      price: "49500",
+      image: saladImg25,
+    },
+    {
+      id: "salad9",
+      name: { uz: "Yaponskiy salat", ru: "Японский", en: "Japanese salad" },
+      price: "49500",
+      image: saladImg6,
+    },
+    {
+      id: "salad10",
+      name: { uz: "Seul", ru: "Сеул", en: "Seoul salad" },
+      price: "47500",
+      image: saladImg26,
+    },
+    {
+      id: "salad11",
+      name: { uz: "Roust bif", ru: "Роуст биф", en: "Roast beef" },
+      price: "76500",
+      image: saladImg27,
+    },
+    {
+      id: "salad12",
+      name: { uz: "Erkaklar kaprizi", ru: "Мужской каприз", en: "Male caprice" },
+      price: "50500",
+      image: saladImg28,
+    },
+    {
+      id: "salad13",
+      name: { uz: "Olivye", ru: "Оливье", en: "Olivier salad" },
+      price: "47000",
+      image: saladImg29,
+    },
+    {
+      id: "salad14",
+      name: { uz: "Shalun", ru: "Шалун", en: "Shalun salad" },
+      price: "47500",
+      image: saladImg13,
+    },
+    {
+      id: "salad15",
+      name: { uz: "Brokkoli salati", ru: "Салат из брокали", en: "Broccoli salad" },
+      price: "66500",
+      image: saladImg14,
+    },
+    {
+      id: "salad16",
+      name: { uz: "Francuzskiy", ru: "Французский", en: "French salad" },
+      price: "45000",
+      image: saladImg15,
+    },
+    {
+      id: "salad17",
+      name: { uz: "Issiq Shirin", ru: "Теплый Ширин", en: "Warm Shirin" },
+      price: "69500",
+      image: saladImg16,
+    },
+    {
+      id: "salad18",
+      name: { uz: "Qor parchasi", ru: "Снежинка", en: "Snowflake" },
+      price: "49500",
+      image: saladImg17,
+    },
+    {
+      id: "salad19",
+      name: { uz: "Kulgu", ru: "Улыбка", en: "Smile" },
+      price: "43500",
+      image: saladImg18,
+    },
+    {
+      id: "salad20",
+      name: { uz: "Bolgariya", ru: "Болгария", en: "Bulgaria" },
+      price: "47500",
+      image: saladImg19, // Bolgariya uchun rasm takror ishlatilgan
+    },
+    {
+      id: "salad21",
+      name: { uz: "Majnuntol", ru: "Мажнунтол", en: "Majnuntol" },
+      price: "48500",
+      image: saladImg20, // Majnuntol uchun rasm
+    },
+    {
+      id: "salad22",
+      name: { uz: "Rukola", ru: "Рукола", en: "Rukola" },
+      price: "59500",
+      image: saladImg21, // Rukola uchun rasm
+    },
+  ],
 
 
   // 3. SABZAVOTLI SALATLAR
- "vegetable-salads": [
-  {
-    id: "veg_salad1",
-    name: { uz: "Vinegret", ru: "Винигрет", en: "Vinaigrette" },
-    price: "37000",
-    image: vegetableSaladImg1,
-  },
-  {
-    id: "veg_salad2",
-    name: { uz: "Veshenki qo'ziqorinlari", ru: "Грибы вешенки", en: "Oyster mushrooms" },
-    price: "32000",
-    image: vegetableSaladImg2,
-  },
-  {
-    id: "veg_salad3",
-    name: { uz: "Vitaminli salat", ru: "Витаминный", en: "Vitamin salad" },
-    price: "35000",
-    image: vegetableSaladImg3,
-  },
-  {
-    id: "veg_salad4",
-    name: { uz: "Kesilgan bodring", ru: "Огурцы Нарезка", en: "Sliced cucumbers" },
-    price: "13000",
-    image: vegetableSaladImg4,
-  },
-  {
-    id: "veg_salad5",
-    name: { uz: "Kapulete", ru: "Капулете", en: "Capulete" },
-    price: "40000",
-    image: vegetableSaladImg5,
-  },
-  {
-    id: "veg_salad6",
-    name: { uz: "Qovurilgan sabzavotlar", ru: "Овощи жареные", en: "Fried vegetables" },
-    price: "75000",
-    image: vegetableSaladImg6,
-  },
-  {
-    id: "veg_salad7",
-    name: { uz: "Xoravac", ru: "Хоравац", en: "Khorovats" },
-    price: "50500",
-    image: vegetableSaladImg7,
-  },
-  {
-    id: "veg_salad8",
-    name: { uz: "O'zbekcha salat", ru: "Узбекский", en: "Uzbek salad" },
-    price: "20500",
-    image: vegetableSaladImg8,
-  },
-  {
-    id: "veg_salad9",
-    name: { uz: "Achichuk", ru: "Ачик-чучук", en: "Achichuk" },
-    price: "20000",
-    image: vegetableSaladImg9,
-  },
-  {
-    id: "veg_salad10",
-    name: { uz: "Sabzavotli guldasta", ru: "Овощной букет", en: "Vegetable bouquet" },
-    price: "64000",
-    image: vegetableSaladImg10,
-  },
-  {
-    id: "veg_salad11",
-    name: { uz: "Miks", ru: "Микс", en: "Mix salad" },
-    price: "43000",
-    image: vegetableSaladImg11,
-  },
-  {
-    id: "veg_salad12",
-    name: { uz: "Smak", ru: "Смак", en: "Smak" },
-    price: "38000",
-    image: vegetableSaladImg12,
-  },
-  {
-    id: "veg_salad13",
-    name: { uz: "Issiq baqlajon salati", ru: "Теплый Баклажан", en: "Warm eggplant salad" },
-    price: "69500",
-    image: vegetableSaladImg13,
-  },
-  {
-    id: "veg_salad14",
-    name: { uz: "Ekzotika", ru: "Екзотика", en: "Exotika" },
-    price: "59500",
-    image: vegetableSaladImg14,
-  },
-  {
-    id: "veg_salad15",
-    name: { uz: "Qarsillama baqlajon", ru: "Хрустящие Баклажаны", en: "Crispy eggplant" },
-    price: "58500",
-    image: vegetableSaladImg15,
-  },
-  {
-    id: "veg_salad16",
-    name: { uz: "Grekcha salat", ru: "Греческий", en: "Greek salad" },
-    price: "52500",
-    image: vegetableSaladImg16, // Grekcha salat uchun mavjud rasm
-  },
-],
+  "vegetable-salads": [
+    {
+      id: "veg_salad1",
+      name: { uz: "Vinegret", ru: "Винигрет", en: "Vinaigrette" },
+      price: "37000",
+      image: vegetableSaladImg1,
+    },
+    {
+      id: "veg_salad2",
+      name: { uz: "Veshenki qo'ziqorinlari", ru: "Грибы вешенки", en: "Oyster mushrooms" },
+      price: "32000",
+      image: vegetableSaladImg2,
+    },
+    {
+      id: "veg_salad3",
+      name: { uz: "Vitaminli salat", ru: "Витаминный", en: "Vitamin salad" },
+      price: "35000",
+      image: vegetableSaladImg3,
+    },
+    {
+      id: "veg_salad4",
+      name: { uz: "Kesilgan bodring", ru: "Огурцы Нарезка", en: "Sliced cucumbers" },
+      price: "13000",
+      image: vegetableSaladImg4,
+    },
+    {
+      id: "veg_salad5",
+      name: { uz: "Kapulete", ru: "Капулете", en: "Capulete" },
+      price: "40000",
+      image: vegetableSaladImg5,
+    },
+    {
+      id: "veg_salad6",
+      name: { uz: "Qovurilgan sabzavotlar", ru: "Овощи жареные", en: "Fried vegetables" },
+      price: "75000",
+      image: vegetableSaladImg6,
+    },
+    {
+      id: "veg_salad7",
+      name: { uz: "Xoravac", ru: "Хоравац", en: "Khorovats" },
+      price: "50500",
+      image: vegetableSaladImg7,
+    },
+    {
+      id: "veg_salad8",
+      name: { uz: "O'zbekcha salat", ru: "Узбекский", en: "Uzbek salad" },
+      price: "20500",
+      image: vegetableSaladImg8,
+    },
+    {
+      id: "veg_salad9",
+      name: { uz: "Achichuk", ru: "Ачик-чучук", en: "Achichuk" },
+      price: "20000",
+      image: vegetableSaladImg9,
+    },
+    {
+      id: "veg_salad10",
+      name: { uz: "Sabzavotli guldasta", ru: "Овощной букет", en: "Vegetable bouquet" },
+      price: "64000",
+      image: vegetableSaladImg10,
+    },
+    {
+      id: "veg_salad11",
+      name: { uz: "Miks", ru: "Микс", en: "Mix salad" },
+      price: "43000",
+      image: vegetableSaladImg11,
+    },
+    {
+      id: "veg_salad12",
+      name: { uz: "Smak", ru: "Смак", en: "Smak" },
+      price: "38000",
+      image: vegetableSaladImg12,
+    },
+    {
+      id: "veg_salad13",
+      name: { uz: "Issiq baqlajon salati", ru: "Теплый Баклажан", en: "Warm eggplant salad" },
+      price: "69500",
+      image: vegetableSaladImg13,
+    },
+    {
+      id: "veg_salad14",
+      name: { uz: "Ekzotika", ru: "Екзотика", en: "Exotika" },
+      price: "59500",
+      image: vegetableSaladImg14,
+    },
+    {
+      id: "veg_salad15",
+      name: { uz: "Qarsillama baqlajon", ru: "Хрустящие Баклажаны", en: "Crispy eggplant" },
+      price: "58500",
+      image: vegetableSaladImg15,
+    },
+    {
+      id: "veg_salad16",
+      name: { uz: "Grekcha salat", ru: "Греческий", en: "Greek salad" },
+      price: "52500",
+      image: vegetableSaladImg16, // Grekcha salat uchun mavjud rasm
+    },
+  ],
 
 
   // 4. DENGIZ MAHSULOTLARI SALATLARI
- "seafood-salads": [
-  {
-    id: "seafood_1",
-    name: { uz: "Mimoza", ru: "Мимоза", en: "Mimosa" },
-    price: "40000",
-    image: seafoodSaladImg1,
-  },
-  {
-    id: "seafood_2",
-    name: { uz: "Selyodka pod shuboy", ru: "Селёдка под шубой", en: "Herring under a fur coat" },
-    price: "40000",
-    image: seafoodSaladImg2,
-  },
-  {
-    id: "seafood_3",
-    name: { uz: "Tunezli salat", ru: "Салат с тунцом", en: "Tuna salad" },
-    price: "69500",
-    image: seafoodSaladImg3,
-  },
-  {
-    id: "seafood_4",
-    name: { uz: "Krevets va avokado rukola bilan", ru: "Креветки с руколой и авакадо", en: "Shrimp with arugula and avocado" },
-    price: "68000",
-    image: seafoodSaladImg4,
-  },
-  {
-    id: "seafood_5",
-    name: { uz: "Losos va avokadoli salat", ru: "Салат из лосося и авакадо", en: "Salmon and avocado salad" },
-    price: "72000",
-    image: seafoodSaladImg5,
-  },
-],
+  "seafood-salads": [
+    {
+      id: "seafood_1",
+      name: { uz: "Mimoza", ru: "Мимоза", en: "Mimosa" },
+      price: "40000",
+      image: seafoodSaladImg1,
+    },
+    {
+      id: "seafood_2",
+      name: { uz: "Selyodka pod shuboy", ru: "Селёдка под шубой", en: "Herring under a fur coat" },
+      price: "40000",
+      image: seafoodSaladImg2,
+    },
+    {
+      id: "seafood_3",
+      name: { uz: "Tunezli salat", ru: "Салат с тунцом", en: "Tuna salad" },
+      price: "69500",
+      image: seafoodSaladImg3,
+    },
+    {
+      id: "seafood_4",
+      name: { uz: "Krevets va avokado rukola bilan", ru: "Креветки с руколой и авакадо", en: "Shrimp with arugula and avocado" },
+      price: "68000",
+      image: seafoodSaladImg4,
+    },
+    {
+      id: "seafood_5",
+      name: { uz: "Losos va avokadoli salat", ru: "Салат из лосося и авакадо", en: "Salmon and avocado salad" },
+      price: "72000",
+      image: seafoodSaladImg5,
+    },
+  ],
 
   // 5. SOʻUQ ZAKUSKALAR
-"cold-appetizers": [
-  {
-    id: "cold_1",
-    name: { uz: "Qizil ikra (50gr)", ru: "Икра красная (50гр)", en: "Red caviar (50g)" },
-    price: "197000",
-    image: coldSnackImg1,
-  },
-  {
-    id: "cold_2",
-    name: { uz: "Yaxna 250gr", ru: "Яхна 250 гр", en: "Yakhna 250g" },
-    price: "120500",
-    image: coldSnackImg2,
-  },
-  {
-    id: "cold_3",
-    name: { uz: "Pishloq", ru: "Сыр", en: "Cheese" },
-    price: "29000",
-    image: coldSnackImg3,
-  },
-  {
-    id: "cold_4",
-    name: { uz: "Chakka", ru: "Чакка", en: "Chakka" },
-    price: "14000",
-    image: coldSnackImg4,
-  },
-  {
-    id: "cold_5",
-    name: { uz: "Go'shtli assorti 520gr", ru: "Мясное Ассорти 520гр", en: "Meat Assorted 520g" },
-    price: "175000",
-    image: coldSnackImg5,
-  },
-  {
-    id: "cold_6",
-    name: { uz: "Limon kesilgan", ru: "Лимон нарезка", en: "Sliced Lemon" },
-    price: "18400",
-    image: coldSnackImg6,
-  },
-  {
-    id: "cold_7",
-    name: { uz: "Limon ikkiga bo'lingan", ru: "Лимон-Пополам", en: "Lemon Halves" },
-    price: "18400",
-    image: coldSnackImg7,
-  },
-  {
-    id: "cold_8",
-    name: { uz: "Ko'katlar assortisi", ru: "Зелень ассорти", en: "Assorted Greens" },
-    price: "18000",
-    image: coldSnackImg8,
-  },
-  {
-    id: "cold_9",
-    name: { uz: "Mulatka", ru: "Мулатка", en: "Mulatka" },
-    price: "35000",
-    image: coldSnackImg9,
-  },
-  {
-    id: "cold_10",
-    name: { uz: "Brinza", ru: "Бринза", en: "Bryndza" },
-    price: "25000",
-    image: coldSnackImg10,
-  },
-  {
-    id: "cold_11",
-    name: { uz: "Ruscha selyodka", ru: "Сельд по Русский", en: "Russian-style herring" },
-    price: "55000",
-    image: coldSnackImg11,
-  },
-  {
-    id: "cold_12",
-    name: { uz: "Baliq assortisi", ru: "Рыбное ассорти", en: "Fish platter" },
-    price: "216500",
-    image: coldSnackImg12,
-  },
-  {
-    id: "cold_13",
-    name: { uz: "Otquloq va limon", ru: "Щавель лимон", en: "Sorrel lemon" },
-    price: "20000",
-    image: coldSnackImg13,
-  },
-  {
-    id: "cold_14",
-    name: { uz: "Tuzlamalar assortisi", ru: "Соленья Ассорти", en: "Assorted Pickles" },
-    price: "65500",
-    image: coldSnackImg14,
-  },
-  {
-    id: "cold_15",
-    name: { uz: "Pishloq/Brinza assortisi", ru: "Сыр/Брынза ассорти", en: "Cheese/Bryndza Assorted" },
-    price: "190000",
-    image: coldSnackImg15,
-  },
-],
+  "cold-appetizers": [
+    {
+      id: "cold_1",
+      name: { uz: "Qizil ikra (50gr)", ru: "Икра красная (50гр)", en: "Red caviar (50g)" },
+      price: "197000",
+      image: coldSnackImg1,
+    },
+    {
+      id: "cold_2",
+      name: { uz: "Yaxna 250gr", ru: "Яхна 250 гр", en: "Yakhna 250g" },
+      price: "120500",
+      image: coldSnackImg2,
+    },
+    {
+      id: "cold_3",
+      name: { uz: "Pishloq", ru: "Сыр", en: "Cheese" },
+      price: "29000",
+      image: coldSnackImg3,
+    },
+    {
+      id: "cold_4",
+      name: { uz: "Chakka", ru: "Чакка", en: "Chakka" },
+      price: "14000",
+      image: coldSnackImg4,
+    },
+    {
+      id: "cold_5",
+      name: { uz: "Go'shtli assorti 520gr", ru: "Мясное Ассорти 520гр", en: "Meat Assorted 520g" },
+      price: "175000",
+      image: coldSnackImg5,
+    },
+    {
+      id: "cold_6",
+      name: { uz: "Limon kesilgan", ru: "Лимон нарезка", en: "Sliced Lemon" },
+      price: "18400",
+      image: coldSnackImg6,
+    },
+    {
+      id: "cold_7",
+      name: { uz: "Limon ikkiga bo'lingan", ru: "Лимон-Пополам", en: "Lemon Halves" },
+      price: "18400",
+      image: coldSnackImg7,
+    },
+    {
+      id: "cold_8",
+      name: { uz: "Ko'katlar assortisi", ru: "Зелень ассорти", en: "Assorted Greens" },
+      price: "18000",
+      image: coldSnackImg8,
+    },
+    {
+      id: "cold_9",
+      name: { uz: "Mulatka", ru: "Мулатка", en: "Mulatka" },
+      price: "35000",
+      image: coldSnackImg9,
+    },
+    {
+      id: "cold_10",
+      name: { uz: "Brinza", ru: "Бринза", en: "Bryndza" },
+      price: "25000",
+      image: coldSnackImg10,
+    },
+    {
+      id: "cold_11",
+      name: { uz: "Ruscha selyodka", ru: "Сельд по Русский", en: "Russian-style herring" },
+      price: "55000",
+      image: coldSnackImg11,
+    },
+    {
+      id: "cold_12",
+      name: { uz: "Baliq assortisi", ru: "Рыбное ассорти", en: "Fish platter" },
+      price: "216500",
+      image: coldSnackImg12,
+    },
+    {
+      id: "cold_13",
+      name: { uz: "Otquloq va limon", ru: "Щавель лимон", en: "Sorrel lemon" },
+      price: "20000",
+      image: coldSnackImg13,
+    },
+    {
+      id: "cold_14",
+      name: { uz: "Tuzlamalar assortisi", ru: "Соленья Ассорти", en: "Assorted Pickles" },
+      price: "65500",
+      image: coldSnackImg14,
+    },
+    {
+      id: "cold_15",
+      name: { uz: "Pishloq/Brinza assortisi", ru: "Сыр/Брынза ассорти", en: "Cheese/Bryndza Assorted" },
+      price: "190000",
+      image: coldSnackImg15,
+    },
+  ],
 
+  // 6. GOʻSTLI ZAKUSKALAR
   // 6. GOʻSTLI ZAKUSKALAR
   "meat-appetizers": [
     {
@@ -624,9 +631,15 @@ export const products = {
     },
     {
       id: "meatSnack2",
+      name: { uz: "Til 100Gr", ru: "Язык 100Гр", en: "Tongue 100Gr" },
+      price: "35000",
+      image: meatSnackImg2,
+    },
+    {
+      id: "meatSnack3",
       name: { uz: "Qazi 100Gr", ru: "Казы 100Гр", en: "Kazy 100Gr" },
       price: "40500",
-      image: meatSnackImg2,
+      image: meatSnackImg3,
     },
   ],
 
@@ -694,167 +707,168 @@ export const products = {
     },
   ],
 
+
   // 8. IKKINCHI TAOMLAR
-"main-dishes": [
-  {
-    id: "mainCourse1",
-    name: { uz: "Grilda koreyka", ru: "Корейка на гриле", en: "Grilled rack of lamb" },
-    price: "100000",
-    image: mainCourseImg1,
-  },
-  {
-    id: "mainCourse2",
-    name: { uz: "Assado", ru: "Assado", en: "Assado" },
-    price: "319000",
-    image: mainCourseImg2,
-  },
-  {
-    id: "mainCourse3",
-    name: { uz: "Lag'mon", ru: "Лагман", en: "Lagman" },
-    price: "64000",
-    image: mainCourseImg3,
-  },
-  {
-    id: "mainCourse4",
-    name: { uz: "Jiz-biz (lahm)", ru: "Жиз-быз (вырезки)", en: "Jiz-biz (tenderloin)" },
-    price: "394000",
-    image: mainCourseImg4,
-  },
-  {
-    id: "mainCourse5",
-    name: { uz: "Shirin TABAKA kg", ru: "Ширин ТАБАКА кг", en: "Shirin TABAKA kg" },
-    price: "122000",
-    image: mainCourseImg5,
-  },
-  {
-    id: "mainCourse6",
-    name: { uz: "Fransuzcha go'sht", ru: "Мясо по Французски", en: "French style meat" },
-    price: "103000",
-    image: mainCourseImg6,
-  },
-  {
-    id: "mainCourse7",
-    name: { uz: "Go'sht Shirin", ru: 'Мясо. "Ширин"', en: "Meat Shirin" },
-    price: "319000",
-    image: mainCourseImg7,
-  },
-  {
-    id: "mainCourse8",
-    name: { uz: "Dolma 1 dona", ru: "Долма 1 шт", en: "Dolma 1 pc" },
-    price: "9000",
-    image: mainCourseImg8,
-  },
-  {
-    id: "mainCourse9",
-    name: { uz: "Jiz-biz (qo'y go'shti)", ru: "Жиз-быз (из баранины)", en: "Jiz-biz (lamb)" },
-    price: "324800",
-    image: mainCourseImg9,
-  },
-  {
-    id: "mainCourse10",
-    name: { uz: "Shirin Jiz-biz (Assorti)", ru: "Shirin Жиз-быз (Ассорти)", en: "Shirin Jiz-biz (Assorted)" },
-    price: "690000",
-    image: mainCourseImg10,
-  },
-  {
-    id: "mainCourse11",
-    name: { uz: "Xil-xil go'sht shou", ru: "Хил Хил Мясное Шоу", en: "Tender Meat Show" },
-    price: "320000",
-    image: mainCourseImg11,
-  },
-  {
-    id: "mainCourse12",
-    name: { uz: "Flotcha makaron", ru: "Макароны по флотски", en: "Navy style pasta" },
-    price: "65500",
-    image: mainCourseImg12,
-  },
-  {
-    id: "mainCourse13",
-    name: { uz: "Dimlangan qovurg'a", ru: "Ребро Тушенное", en: "Braised rib" },
-    price: "330000",
-    image: mainCourseImg13,
-  },
-  {
-    id: "mainCourse14",
-    name: { uz: "Soch kabob", ru: "Соч Кабоб", en: "Soch kebab" },
-    price: "98000",
-    image: mainCourseImg14,
-  },
-  {
-    id: "mainCourse15",
-    name: { uz: "Alfredo", ru: "Альфредо", en: "Alfredo" },
-    price: "76000",
-    image: mainCourseImg15,
-  },
-  {
-    id: "mainCourse16",
-    name: { uz: "Dolma porsiya", ru: "Долма порция", en: "Dolma portion" },
-    price: "54000",
-    image: mainCourseImg16,
-  },
-  {
-    id: "mainCourse17",
-    name: { uz: "Lula-kebab", ru: "Люля-кебаб", en: "Lula kebab" },
-    price: "87000",
-    image: mainCourseImg17,
-  },
-  {
-    id: "mainCourse18",
-    name: { uz: "Tovuqli set Shirin", ru: "Куриный сет Ширин", en: "Chicken set Shirin" },
-    price: "342000",
-    image: mainCourseImg18,
-  },
-  {
-    id: "mainCourse19",
-    name: { uz: "Jiz-biz KOREYKA", ru: "Жиз Быз КОРЕЙКА", en: "Jiz-biz Rack of lamb" },
-    price: "345000",
-    image: mainCourseImg19,
-  },
-],
+  "main-dishes": [
+    {
+      id: "mainCourse1",
+      name: { uz: "Grilda koreyka", ru: "Корейка на гриле", en: "Grilled rack of lamb" },
+      price: "100000",
+      image: mainCourseImg1,
+    },
+    {
+      id: "mainCourse2",
+      name: { uz: "Assado", ru: "Assado", en: "Assado" },
+      price: "319000",
+      image: mainCourseImg2,
+    },
+    {
+      id: "mainCourse3",
+      name: { uz: "Lag'mon", ru: "Лагман", en: "Lagman" },
+      price: "64000",
+      image: mainCourseImg3,
+    },
+    {
+      id: "mainCourse4",
+      name: { uz: "Jiz-biz (lahm)", ru: "Жиз-быз (вырезки)", en: "Jiz-biz (tenderloin)" },
+      price: "394000",
+      image: mainCourseImg4,
+    },
+    {
+      id: "mainCourse5",
+      name: { uz: "Shirin TABAKA kg", ru: "Ширин ТАБАКА кг", en: "Shirin TABAKA kg" },
+      price: "122000",
+      image: mainCourseImg5,
+    },
+    {
+      id: "mainCourse6",
+      name: { uz: "Fransuzcha go'sht", ru: "Мясо по Французски", en: "French style meat" },
+      price: "103000",
+      image: mainCourseImg6,
+    },
+    {
+      id: "mainCourse7",
+      name: { uz: "Go'sht Shirin", ru: 'Мясо. "Ширин"', en: "Meat Shirin" },
+      price: "319000",
+      image: mainCourseImg7,
+    },
+    {
+      id: "mainCourse8",
+      name: { uz: "Dolma 1 dona", ru: "Долма 1 шт", en: "Dolma 1 pc" },
+      price: "9000",
+      image: mainCourseImg8,
+    },
+    {
+      id: "mainCourse9",
+      name: { uz: "Jiz-biz (qo'y go'shti)", ru: "Жиз-быз (из баранины)", en: "Jiz-biz (lamb)" },
+      price: "324800",
+      image: mainCourseImg9,
+    },
+    {
+      id: "mainCourse10",
+      name: { uz: "Shirin Jiz-biz (Assorti)", ru: "Shirin Жиз-быз (Ассорти)", en: "Shirin Jiz-biz (Assorted)" },
+      price: "690000",
+      image: mainCourseImg10,
+    },
+    {
+      id: "mainCourse11",
+      name: { uz: "Xil-xil go'sht shou", ru: "Хил Хил Мясное Шоу", en: "Tender Meat Show" },
+      price: "320000",
+      image: mainCourseImg11,
+    },
+    {
+      id: "mainCourse12",
+      name: { uz: "Flotcha makaron", ru: "Макароны по флотски", en: "Navy style pasta" },
+      price: "65500",
+      image: mainCourseImg12,
+    },
+    {
+      id: "mainCourse13",
+      name: { uz: "Dimlangan qovurg'a", ru: "Ребро Тушенное", en: "Braised rib" },
+      price: "330000",
+      image: mainCourseImg13,
+    },
+    {
+      id: "mainCourse14",
+      name: { uz: "Soch kabob", ru: "Соч Кабоб", en: "Soch kebab" },
+      price: "98000",
+      image: mainCourseImg14,
+    },
+    {
+      id: "mainCourse15",
+      name: { uz: "Alfredo", ru: "Альфредо", en: "Alfredo" },
+      price: "76000",
+      image: mainCourseImg15,
+    },
+    {
+      id: "mainCourse16",
+      name: { uz: "Dolma porsiya", ru: "Долма порция", en: "Dolma portion" },
+      price: "54000",
+      image: mainCourseImg16,
+    },
+    {
+      id: "mainCourse17",
+      name: { uz: "Lula-kebab", ru: "Люля-кебаб", en: "Lula kebab" },
+      price: "87000",
+      image: mainCourseImg17,
+    },
+    {
+      id: "mainCourse18",
+      name: { uz: "Tovuqli set Shirin", ru: "Куриный сет Ширин", en: "Chicken set Shirin" },
+      price: "342000",
+      image: mainCourseImg18,
+    },
+    {
+      id: "mainCourse19",
+      name: { uz: "Jiz-biz KOREYKA", ru: "Жиз Быз КОРЕЙКА", en: "Jiz-biz Rack of lamb" },
+      price: "345000",
+      image: mainCourseImg19,
+    },
+  ],
 
   // 9. SOʻUQ SHOʻRBALAR
   "cold-soups": [
     {
       id: "coldSoup1",
       name: { uz: "Okroshka", ru: "Окрошка", en: "Okroshka" },
-      price: "38000",
+      price: "21000",
       image: coldSoupImg1,
     },
     {
       id: "coldSoup2",
       name: { uz: "Chalop", ru: "Чалоп", en: "Chalop" },
-      price: "32000",
+      price: "10000",
       image: coldSoupImg2,
     },
     {
       id: "coldSoup3",
       name: { uz: "Okoroshka sabzabotlik", ru: "Окрошка овощная", en: "Vegetable Okroshka" },
-      price: "45000",
+      price: "14000",
       image: coldSoupImg3,
     },
   ],
 
   // 10. GARNIRLAR
-"side-dishes": [
-  {
-    id: "garnish1",
-    name: { uz: "Chips", ru: "Чипсы", en: "Chips" },
-    price: "22000",
-    image: garnishImg1,
-  },
-  {
-    id: "garnish2",
-    name: { uz: "Qishloqcha kartoshka", ru: "Картофель по-деревенски", en: "Wedge fries" },
-    price: "23500",
-    image: garnishImg2,
-  },
-  {
-    id: "garnish3",
-    name: { uz: "Fri", ru: "Фри", en: "French fries" },
-    price: "25000",
-    image: garnishImg3,
-  },
-],
+  "side-dishes": [
+    {
+      id: "garnish1",
+      name: { uz: "Chips", ru: "Чипсы", en: "Chips" },
+      price: "22000",
+      image: garnishImg1,
+    },
+    {
+      id: "garnish2",
+      name: { uz: "Qishloqcha kartoshka", ru: "Картофель по-деревенски", en: "Wedge fries" },
+      price: "23500",
+      image: garnishImg2,
+    },
+    {
+      id: "garnish3",
+      name: { uz: "Fri", ru: "Фри", en: "French fries" },
+      price: "25000",
+      image: garnishImg3,
+    },
+  ],
 
   // 11. CHIKIN / TOVUQ
   chicken: [
@@ -879,56 +893,56 @@ export const products = {
     {
       id: "chicken4",
       name: { uz: "Chiken Qanotcha 1 kg", ru: "Крылья чикин кг", en: "Chicken wings 1 kg" },
-      price: "121000",
+      price: "121500",
       image: chickenImg4,
     },
   ],
 
   // 12. ISSIGʻ ZAKUSKALAR
- "hot-appetizers": [
-  {
-    id: "hotSnack1",
-    name: { uz: "Barak Qovurilgan 1ta", ru: "Барак жаренный шт", en: "Fried Barak 1piece" },
-    price: "14000",
-    image: hotSnack1,
-  },
-  {
-    id: "hotSnack2",
-    name: { uz: "Bichak 1ta", ru: "Бичак, шт", en: "Bichak 1piece" },
-    price: "8000",
-    image: hotSnack2,
-  },
-  {
-    id: "hotSnack3",
-    name: { uz: "Somsa (buyurtma) 1ta", ru: "Самса(заказ) шт", en: "Samsa (order) 1piece" },
-    price: "9500",
-    image: hotSnack3,
-  },
-  {
-    id: "hotSnack4",
-    name: { uz: "Til Kavkazcha", ru: "Язык по кавказски", en: "Caucasian style tongue" },
-    price: "68500",
-    image: hotSnack4,
-  },
-  {
-    id: "hotSnack5",
-    name: { uz: "Lavash ichimlik bilan / masalliqli", ru: "Лаваш с Начинкой", en: "Stuffed Lavash" },
-    price: "52000",
-    image: hotSnack5,
-  },
-  {
-    id: "hotSnack6",
-    name: { uz: "Blinchik 1ta", ru: "Блинчик, шт", en: "Pancake 1piece" },
-    price: "16000",
-    image: hotSnack6,
-  },
-  {
-    id: "hotSnack7",
-    name: { uz: "Qovurilgan baliq (G'ijduvoncha)", ru: "Жареная рыба (по гиждувански)", en: "Fried fish (Gijduvan style)" },
-    price: "102000",
-    image: hotSnack7,
-  },
-],
+  "hot-appetizers": [
+    {
+      id: "hotSnack1",
+      name: { uz: "Barak Qovurilgan 1ta", ru: "Барак жаренный шт", en: "Fried Barak 1piece" },
+      price: "14000",
+      image: hotSnack1,
+    },
+    {
+      id: "hotSnack2",
+      name: { uz: "Bichak 1ta", ru: "Бичак, шт", en: "Bichak 1piece" },
+      price: "8000",
+      image: hotSnack2,
+    },
+    {
+      id: "hotSnack3",
+      name: { uz: "Somsa (buyurtma) 1ta", ru: "Самса(заказ) шт", en: "Samsa (order) 1piece" },
+      price: "9500",
+      image: hotSnack3,
+    },
+    {
+      id: "hotSnack4",
+      name: { uz: "Til Kavkazcha", ru: "Язык по кавказски", en: "Caucasian style tongue" },
+      price: "68500",
+      image: hotSnack4,
+    },
+    {
+      id: "hotSnack5",
+      name: { uz: "Lavash ichimlik bilan / masalliqli", ru: "Лаваш с Начинкой", en: "Stuffed Lavash" },
+      price: "52000",
+      image: hotSnack5,
+    },
+    {
+      id: "hotSnack6",
+      name: { uz: "Blinchik 1ta", ru: "Блинчик, шт", en: "Pancake 1piece" },
+      price: "16000",
+      image: hotSnack6,
+    },
+    {
+      id: "hotSnack7",
+      name: { uz: "Qovurilgan baliq (G'ijduvoncha)", ru: "Жареная рыба (по гиждувански)", en: "Fried fish (Gijduvan style)" },
+      price: "102000",
+      image: hotSnack7,
+    },
+  ],
   // 13. SHASHLIK / MANGAL
   shashlik: [
     {
@@ -999,7 +1013,7 @@ export const products = {
       id: "drink3",
       name: { uz: "Chernogolovka 0.5L", ru: "Черноголовка(0.5)", en: "Chernogolovka 0.5L" },
       price: "18500",
-      image: drinkImg3,
+      image: Img,
     },
     {
       id: "drink4",
@@ -1073,6 +1087,30 @@ export const products = {
       price: "8000",
       image: drinkImg15,
     },
+    {
+      id: "drink5",
+      name: { uz: "O'rik Sharbati", ru: "Урик-Шарбати", en: "Apricot Juice" },
+      price: "23500",
+      image: Img,
+    },
+    {
+      id: "drink6",
+      name: { uz: "Chortoq Limon", ru: "Чорток Лимон", en: "Chortoq Lemon" },
+      price: "69500",
+      image: Img,
+    },
+    {
+      id: "drink7",
+      name: { uz: "Karloviy Variy 0.5", ru: "Карловий Варий 0.5", en: "Karloviy Variy 0.5" },
+      price: "23000",
+      image: Img,
+    },
+    {
+      id: "drink8",
+      name: { uz: "Karlovy Vary 0.33", ru: "Карловы Вары 0.33", en: "Karlovy Vary 0.33" },
+      price: "18000",
+      image: Img,
+    },
   ],
 
   // 15. PIVO
@@ -1088,6 +1126,18 @@ export const products = {
       name: { uz: "Tuborg", ru: "Туборг", en: "Tuborg" },
       price: "22000",
       image: beerImg2,
+    },
+    {
+      id: "beer3",
+      name: { uz: "Zhateckoe Pivo", ru: "Жатецкое Пиво", en: "Zhateckoe Beer" },
+      price: "25000",
+      image: Img,
+    },
+    {
+      id: "beer4",
+      name: { uz: "Zhateckoe Filtrlangan", ru: "Жатецкое Безфильтра", en: "Zhateckoe Unfiltered" },
+      price: "25000",
+      image: Img,
     },
   ],
 
@@ -1112,211 +1162,270 @@ export const products = {
       image: vodkaImg3,
     },
     {
-      id: "vodka4",
-      name: { uz: "Grey Goose 0.5", ru: "Грей Гус 0.5", en: "Grey Goose 0.5" },
+      id: "vodka3",
+      name: { uz: "Grey Goose 0.5", ru: "Grey Goose 0.5", en: "Grey Goose 0.5" },
       price: "570000",
-      image: vodkaImg4,
+      image: Img,
+    },
+    {
+      id: "vodka4",
+      name: { uz: "Finlandia 1l", ru: "Finlandia 1l", en: "Finlandia 1l" },
+      price: "416000",
+      image: Img,
     },
     {
       id: "vodka5",
-      name: { uz: "Finlandia 1l", ru: "Финляндия 1л", en: "Finlandia 1l" },
-      price: "416000",
-      image: vodkaImg5,
-    },
-    {
-      id: "vodka6",
       name: { uz: "Gold Uzbekistan Exclusive 0.7", ru: "Gold Uzbekistan Exclusive 0.7", en: "Gold Uzbekistan Exclusive 0.7" },
       price: "324000",
       image: vodkaImg15,
     },
-    // {
-    //   id: "vodka7",
-    //   name: { uz: "Chaykovskiy premium 0.7", ru: "Чайковский премиум 0,7", en: "Chaykovsky premium 0.7" },
-    //   price: "385000",
-    //   image: vodkaImg7,
-    // },
-    // {
-    //   id: "vodka8",
-    //   name: { uz: "Chaykovskiy 0.5", ru: "Чайковский 0,5", en: "Chaykovsky 0.5" },
-    //   price: "232000",
-    //   image: vodkaImg8,
-    // },
+    {
+      id: "vodka6",
+      name: { uz: "HIJACK GOLD", ru: "HIJACK GOLD", en: "HIJACK GOLD" },
+      price: "283000",
+      image: vodkaImg8,
+    },
     {
       id: "vodka7",
-      name: { uz: "Verba 0.5", ru: "Верба 0.5", en: "Verba 0.5" },
-      price: "230500",
-      image: vodkaImg7,
+      name: { uz: "GOOD GOOSE", ru: "GOOD GOOSE", en: "GOOD GOOSE" },
+      price: "79500",
+      image: vodkaImg31,
     },
-    // {
-    //   id: "vodka10",
-    //   name: { uz: "HIJACK GOLD", ru: "Хиджак Голд", en: "HIJACK GOLD" },
-    //   price: "283000",
-    //   image: vodkaImg10,
-    // },
-    // {
-    //   id: "vodka11",
-    //   name: { uz: "GOOD GOOSE", ru: "Гуд гусь", en: "GOOD GOOSE" },
-    //   price: "79500",
-    //   image: vodkaImg11,
-    // },
-    // {
-    //   id: "vodka12",
-    //   name: { uz: "Belaya Beryozka gold 0.5", ru: "БЕЛАЯ БЕРЁЗКА gold 0.5", en: "Belaya Beryozka gold 0.5" },
-    //   price: "285500",
-    //   image: vodkaImg12,
-    // },
-    // {
-    //   id: "vodka13",
-    //   name: { uz: "Schmidt Supreme 0.5", ru: "Шмидт Суприм 0.5", en: "Schmidt Supreme 0.5" },
-    //   price: "232000",
-    //   image: vodkaImg13,
-    // },
-    // {
-    //   id: "vodka14",
-    //   name: { uz: "Eski Samarqand (Aroq)", ru: "Старый Самарканд (водка)", en: "Old Samarkand (vodka)" },
-    //   price: "105000",
-    //   image: vodkaImg14,
-    // },
-    // {
-    //   id: "vodka15",
-    //   name: { uz: "Uzbegim 0.5l", ru: "Узбегим 0,5л", en: "Uzbegim 0.5l" },
-    //   price: "90000",
-    //   image: vodkaImg15,
-    // },
-    // {
-    //   id: "vodka16",
-    //   name: { uz: "Uzbekistan", ru: "Узбекистан", en: "Uzbekistan" },
-    //   price: "79500",
-    //   image: vodkaImg16,
-    // },
-    // {
-    //   id: "vodka17",
-    //   name: { uz: "Uzbekistan Gold 12", ru: "Узбекистан Голд 12", en: "Uzbekistan Gold 12" },
-    //   price: "420000",
-    //   image: vodkaImg17,
-    // },
-    // {
-    //   id: "vodka18",
-    //   name: { uz: "New Uzb Premium", ru: "Нью Узб Премиум", en: "New Uzb Premium" },
-    //   price: "128500",
-    //   image: vodkaImg18,
-    // },
+    {
+      id: "vodka8",
+      name: { uz: "Belaya Beryozka gold 0.5", ru: "БЕЛАЯ БЕРЁЗКА gold 0.5", en: "Belaya Beryozka gold 0.5" },
+      price: "285500",
+      image: vodkaImg32,
+    },
+    {
+      id: "vodka9",
+      name: { uz: "Schmidt Supreme 0.5", ru: "Schmidt Supreme 0.5", en: "Schmidt Supreme 0.5" },
+      price: "232000",
+      image: vodkaImg33,
+    },
+    {
+      id: "vodka10",
+      name: { uz: "Eski Samarqand (Aroq)", ru: "Старый Самарканд (водка)", en: "Old Samarkand (vodka)" },
+      price: "105000",
+      image: vodkaImg14,
+    },
+    {
+      id: "vodka11",
+      name: { uz: "Uzbegim 0.5l", ru: "Узбегим 0,5л", en: "Uzbegim 0.5l" },
+      price: "90000",
+      image: Img,
+    },
+    {
+      id: "vodka12",
+      name: { uz: "Uzbekistan", ru: "Узбекистан", en: "Uzbekistan" },
+      price: "79500",
+      image: vodkaImg13,
+    },
+    {
+      id: "vodka13",
+      name: { uz: "Uzbekistan Gold 12", ru: "Uzbekistan Gold 12", en: "Uzbekistan Gold 12" },
+      price: "420000",
+      image: vodkaImg15,
+    },
+    {
+      id: "vodka14",
+      name: { uz: "New Uzb Premium", ru: "New Uzb Premium", en: "New Uzb Premium" },
+      price: "128500",
+      image: vodkaImg34,
+    },
+    {
+      id: "vodka15",
+      name: { uz: "Finlandia 0.7", ru: "Finlandia 0.7", en: "Finlandia 0.7" },
+      price: "370000",
+      image: Img,
+    },
+    {
+      id: "vodka16",
+      name: { uz: "Kremlin", ru: "Kremlin", en: "Kremlin" },
+      price: "205500",
+      image: Img,
+    },
+    {
+      id: "vodka17",
+      name: { uz: "Finlandia 0.5", ru: "Finlandia 0.5", en: "Finlandia 0.5" },
+      price: "310500",
+      image: Img,
+    },
+    {
+      id: "vodka18",
+      name: { uz: "Jameson 1l", ru: "Jameson 1l", en: "Jameson 1l" },
+      price: "720000",
+      image: Img,
+    },
+    {
+      id: "vodka19",
+      name: { uz: "Stolichnaya", ru: "Stolichnaya", en: "Stolichnaya" },
+      price: "126700",
+      image: Img,
+    },
+    {
+      id: "vodka20",
+      name: { uz: "Stolichnaya Sever", ru: "Stolichnaya Sever", en: "Stolichnaya Sever" },
+      price: "126700",
+      image: Img,
+    },
+    {
+      id: "vodka21",
+      name: { uz: "Belaya Berezka", ru: "Belaya Berezka", en: "Belaya Berezka" },
+      price: "156500",
+      image: Img,
+    },
+    {
+      id: "vodka22",
+      name: { uz: "Belenkaya Lux", ru: "Belenkaya Lux", en: "Belenkaya Lux" },
+      price: "99500",
+      image: Img,
+    },
+    {
+      id: "vodka23",
+      name: { uz: "Belenkaya Zolotaya", ru: "Belenkaya Zolotaya", en: "Belenkaya Zolotaya" },
+      price: "107500",
+      image: Img,
+    },
+    {
+      id: "vodka24",
+      name: { uz: "Tesla Platina", ru: "Тесла Платина", en: "Tesla Platina" },
+      price: "115500",
+      image: Img,
+    },
+    {
+      id: "vodka25",
+      name: { uz: "Brest Litovsk", ru: "Брест Литовск", en: "Brest Litovsk" },
+      price: "96500",
+      image: Img,
+    },
+    {
+      id: "vodka26",
+      name: { uz: "Ballantines 0.5", ru: "Ballantines 0.5", en: "Ballantines 0.5" },
+      price: "360000",
+      image: Img,
+    },
+    {
+      id: "vodka27",
+      name: { uz: "Belaya Berezka Zolotaya", ru: "Белая Березка Золотая", en: "Belaya Berezka Zolotaya" },
+      price: "201000",
+      image: Img,
+    },
+    {
+      id: "vodka28",
+      name: { uz: "E Factor Gold", ru: "E Factor Gold", en: "E Factor Gold" },
+      price: "107500",
+      image: Img,
+    },
   ],
-
-  // 17. VINO
   wine: [
     {
-      id: "wine1",
-      name: { uz: "PERI SHIRAZ", ru: "ПЕРИ ШЕРАЗ", en: "PERI SHIRAZ" },
+      id: "wine3",
+      name: { uz: "Peri Shiraz", ru: "PERI SHIRAZ", en: "Peri Shiraz" },
       price: "168000",
       image: wineImg1,
     },
     {
-      id: "wine3",
-      name: { uz: "Peri Rose", ru: "Пери Розе", en: "Peri Rose" },
-      price: "148000",
-      image: wineImg3,
-    },
-    {
-      id: "wine2",
-      name: { uz: "Chardonnay", ru: "Шардоне", en: "Chardonnay" },
+      id: "wine4",
+      name: { uz: "Peri Chordonay", ru: "Peri Chordonay", en: "Peri Chordonay" },
       price: "145000",
       image: wineImg2,
     },
     {
-      id: "wine4",
-      name: { uz: 'Вино "CHardonay"', ru: 'Вино "CHardonay"', en: 'vine "CHardonay"' },
+      id: "wine5",
+      name: { uz: "Peri Rose", ru: "Peri Rose", en: "Peri Rose" },
+      price: "148000",
+      image: wineImg3,
+    },
+    {
+      id: "wine6",
+      name: { uz: "Bagizagan Chardonnay", ru: "Вино \"Chardonnay\"", en: "Bagizagan Chardonnay" },
       price: "84000",
       image: wineImg4,
     },
   ],
-
-  // 18. KONYAK
   cognac: [
     {
-      id: "cognac1",
-      name: { uz: "Samarqand 5 Yulduz", ru: "Samarkand*****", en: "Samarkand 5 Star" },
+      id: "cognac3",
+      name: { uz: "Samarqand*****", ru: "Samarkand*****", en: "Samarkand*****" },
       price: "62500",
       image: cognacImg1,
     },
     {
-      id: "cognac2",
-      name: { uz: "Samarqand 3 Yillik", ru: "Самарканд 3 год", en: "Samarkand 3 Years" },
-      price: "105000",
+      id: "cognac4",
+      name: { uz: "Eski Samarqand 15 (0.5)", ru: "Старый Самарканд 15 (0.5)", en: "Old Samarkand 15 (0.5)" },
+      price: "324000",
       image: cognacImg2,
     },
     {
-      id: "cognac3",
-      name: { uz: "Eski Samarqand 5 (0.5)", ru: "Старый Самарканд 5 (0.5)", en: "Old Samarkand 5 (0.5)" },
-      price: "234000",
+      id: "cognac5",
+      name: { uz: "Eski Samarqand 7 (0.5)", ru: "Старый Самарканд 7 (0.5)", en: "Old Samarkand 7 (0.5)" },
+      price: "290000",
       image: cognacImg3,
     },
     {
-      id: "cognac5",
+      id: "cognac6",
+      name: { uz: "Eski Samarqand 5 (0.5)", ru: "Старый Самарканд 5 (0.5)", en: "Old Samarkand 5 (0.5)" },
+      price: "234000",
+      image: cognacImg4,
+    },
+    {
+      id: "cognac7",
       name: { uz: "Tanbour 7 (0.5)", ru: "Tanbour 7 (0.5)", en: "Tanbour 7 (0.5)" },
       price: "280500",
       image: cognacImg5,
     },
-    {
-      id: "cognac4",
-      name: { uz: "Eski Samarqand 7 (0.5)", ru: "Старый Самарканд 7 (0.5)", en: "Old Samarkand 7 (0.5)" },
-      price: "290000",
-      image: cognacImg4,
-    },
   ],
-
-  // 19. MAXITO
   mojito: [
     {
-      id: "mojito1",
-      name: { uz: "Apelsin fresh 1L", ru: "апельсин фреш 1л", en: "Orange fresh 1L" },
+      id: "lemonade3",
+      name: { uz: "Apelsin Fresh 1L", ru: "апельсин фреш 1л", en: "Orange Fresh 1L" },
       price: "90000",
-      image: mojitoImg1,
+      image: Img,
     },
     {
-      id: "mojito2",
-      name: { uz: "Limonad Tarxun grafin", ru: "ЛЕМОНАДЪЕ тархун графин", en: "Tarragon Lemonade jug" },
+      id: "lemonade4",
+      name: { uz: "Limonad Tarxun Grafin", ru: "ЛЕМОНАДЬЕ тархун графин", en: "Tarragon Lemonade Pitcher" },
       price: "35000",
       image: mojitoImg2,
     },
     {
-      id: "mojito4",
-      name: { uz: "Moxito Malinayli", ru: "махито малиновый", en: "Raspberry Mojito" },
-      price: "45000",
-      image: mojitoImg4,
+      id: "lemonade5",
+      name: { uz: "Shirin Maxito", ru: "махито ширин", en: "Sweet Mojito" },
+      price: "55000",
+      image: Img,
     },
     {
-      id: "mojito5",
-      name: { uz: "Moxito Klassik", ru: "махито классик", en: "Classic Mojito" },
+      id: "lemonade6",
+      name: { uz: "Malinali Maxito", ru: "махито малиновый", en: "Raspberry Mojito" },
+      price: "45000",
+      image: mojitoImg6,
+    },
+    {
+      id: "lemonade7",
+      name: { uz: "Klassik Maxito", ru: "махито классик", en: "Classic Mojito" },
       price: "45000",
       image: mojitoImg5,
     },
     {
-      id: "mojito4",
-      name: { uz: "Moxito Qulupnayli", ru: "клубничный", en: "Strawberry Mojito" },
+      id: "lemonade8",
+      name: { uz: "Qulupnayli Maxito", ru: "клубничный махито", en: "Strawberry Mojito" },
       price: "55000",
-      image: mojitoImg4,
+      image: mojitoImg6,
     },
     {
-      id: "mojito7",
-      name: { uz: "Mango Marakuya", ru: "манго маракуя", en: "Mango Passionfruit" },
+      id: "lemonade9",
+      name: { uz: "Mango Marakuya", ru: "манго маракуя", en: "Mango Passion Fruit" },
       price: "55000",
       image: mojitoImg7,
     },
     {
-      id: "mojito7",
-      name: { uz: "Red Bull Marakuya", ru: "Red Bull Маракуя", en: "Red Bull Passionfruit" },
+      id: "lemonade10",
+      name: { uz: "Red Bull Marakuya", ru: "Red Bull Маракуя", en: "Red Bull Passion Fruit" },
       price: "78500",
-      image:Img,
-    },
-    {
-      id: "mojito8",
-      name: { uz: "Maxito Shirin", ru: "Мохито Ширин", en: "Mojito Shirin" },
-      price: "55000",
       image: Img,
     },
   ],
-
   // 20. DESERTLAR
   desserts: [
     {
@@ -1335,19 +1444,19 @@ export const products = {
       id: "dessert3",
       name: { uz: "Muzqaymoq", ru: "мороженое", en: "Ice cream" },
       price: "12000",
-      image: dessertImg3,
+      image: Img,
     },
     {
       id: "dessert4",
       name: { uz: "Tarvuz", ru: "Арбуз", en: "Watermelon" },
       price: "22000",
-      image: dessertImg4,
+      image: Img,
     },
     {
       id: "dessert5",
       name: { uz: "Nektar", ru: "Нектар", en: "Nectar" },
       price: "25000",
-      image: dessertImg5,
+      image: Img,
     },
   ],
 
