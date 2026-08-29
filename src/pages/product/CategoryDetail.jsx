@@ -198,7 +198,7 @@ export default function CategoryDetail({
     </div>
   );
 
-  // Floating Savat paneli portal orqali body ga chiqariladi
+  // Floating Savat paneli
   const cartBarContent = (
     <div className="cart-bar-wrapper">
       <div className="cart-bar-container" onClick={onOpenCart}>
@@ -209,15 +209,11 @@ export default function CategoryDetail({
               <circle cx="20" cy="21" r="1"></circle>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
-            {totalCartCount > 0 && (
-              <span className="cart-badge-count">{totalCartCount}</span>
-            )}
+            <span className="cart-badge-count">{totalCartCount}</span>
           </div>
           <div className="cart-bar-details">
             <span className="cart-items-text">
-              {totalCartCount > 0
-                ? `${totalCartCount} ${UI_TEXT.cartItemsCount[currentLang]}`
-                : UI_TEXT.emptyCart[currentLang]}
+              {totalCartCount} {UI_TEXT.cartItemsCount[currentLang]}
             </span>
             <span className="cart-total-price">
               {totalCartPrice.toLocaleString()} {UI_TEXT.currency[currentLang]}
@@ -370,8 +366,8 @@ export default function CategoryDetail({
         )}
       </main>
 
-      {/* Savat panelini portal orqali body-ga o'tkazish */}
-      {createPortal(cartBarContent, document.body)}
+      {/* Savat panelini portal orqali body-ga faqat savatda mahsulot bo'lganda chiqarish */}
+      {totalCartCount > 0 && createPortal(cartBarContent, document.body)}
 
       {/* Modal paneli */}
       {selectedProduct && createPortal(modalContent, document.body)}
